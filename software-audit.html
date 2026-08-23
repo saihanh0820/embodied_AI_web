@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="weimou_web 软件与底层架构审查清单">
+  <title>软件与架构审查 | 微眸医疗</title>
+  <style>
+    :root { --ink:#182126; --muted:#5e6a70; --line:#dbe2e3; --paper:#fff; --canvas:#f4f7f7; --teal:#007c70; --teal-pale:#e0f2ee; --gold:#bb7400; --gold-pale:#fff1d7; --red:#b63835; --red-pale:#fde9e7; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--canvas); color:var(--ink); font:15px/1.6 Arial,"Microsoft YaHei",sans-serif; }
+    .shell { width:min(1180px,calc(100% - 40px)); margin:0 auto; }
+    .masthead { padding:42px 0 30px; border-bottom:1px solid var(--line); background:var(--paper); }
+    .masthead .shell { display:flex; justify-content:space-between; gap:24px; align-items:flex-end; }
+    .eyebrow { margin:0 0 10px; color:var(--teal); font-size:12px; font-weight:700; letter-spacing:0; text-transform:uppercase; }
+    h1 { margin:0; font-size:32px; line-height:1.2; font-weight:700; letter-spacing:0; }
+    .subtitle { margin:10px 0 0; color:var(--muted); }
+    .print { border:1px solid var(--ink); background:var(--paper); color:var(--ink); height:38px; min-width:40px; cursor:pointer; font:inherit; font-weight:700; }
+    .print:hover { color:var(--paper); background:var(--ink); }
+    main { padding:30px 0 56px; }
+    .summary { display:grid; grid-template-columns:1.35fr repeat(3,1fr); border:1px solid var(--line); background:var(--paper); }
+    .summary > div { min-height:105px; padding:18px 20px; border-right:1px solid var(--line); }
+    .summary > div:last-child { border-right:0; }
+    .summary small { display:block; color:var(--muted); font-size:12px; }
+    .summary strong { display:block; margin-top:7px; font-size:21px; line-height:1.25; }
+    .section { margin-top:28px; }
+    .section-heading { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:12px; }
+    h2 { margin:0; font-size:19px; letter-spacing:0; }
+    .section-heading p { margin:0; color:var(--muted); font-size:13px; }
+    .architecture { display:grid; grid-template-columns:repeat(5,1fr); gap:0; align-items:stretch; }
+    .node { position:relative; min-height:154px; padding:19px; background:var(--paper); border:1px solid var(--line); }
+    .node + .node { border-left:0; }
+    .node:not(:last-child)::after { content:""; position:absolute; z-index:2; top:50%; right:-7px; width:13px; height:13px; background:var(--teal); transform:translateY(-50%) rotate(45deg); }
+    .node b { display:block; margin-bottom:8px; font-size:16px; }
+    .node p { margin:0; color:var(--muted); font-size:13px; line-height:1.55; }
+    .node.external { background:#fbfdfc; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .panel { overflow:hidden; border:1px solid var(--line); background:var(--paper); }
+    .panel h3 { margin:0; padding:15px 18px; border-bottom:1px solid var(--line); font-size:15px; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { padding:12px 18px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    tr:last-child td { border-bottom:0; }
+    th { color:var(--muted); background:#f8faf9; font-size:12px; font-weight:700; }
+    td:first-child { width:28%; font-weight:700; }
+    td:nth-child(2) { width:34%; }
+    .tag { display:inline-block; padding:2px 7px; font-size:12px; font-weight:700; line-height:1.4; white-space:nowrap; }
+    .on { color:var(--teal); background:var(--teal-pale); }
+    .optional { color:var(--gold); background:var(--gold-pale); }
+    .none { color:var(--red); background:var(--red-pale); }
+    .note { margin:0; padding:16px 18px; border-left:3px solid var(--teal); background:var(--paper); color:#344046; }
+    .governance { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; border:1px solid var(--line); background:var(--line); }
+    .governance article { padding:18px; background:var(--paper); }
+    .governance h3 { margin:0 0 7px; font-size:15px; }
+    .governance p { margin:0; color:var(--muted); font-size:13px; }
+    footer { padding:18px 0 34px; color:var(--muted); font-size:12px; }
+    @media (max-width:800px) { .masthead .shell{align-items:flex-start;flex-direction:column}.summary{grid-template-columns:1fr 1fr}.summary > div:nth-child(2){border-right:0}.summary > div:nth-child(-n+2){border-bottom:1px solid var(--line)}.architecture{grid-template-columns:1fr}.node + .node{border-left:1px solid var(--line);border-top:0}.node:not(:last-child)::after{top:auto;right:50%;bottom:-7px;transform:translateX(50%) rotate(45deg)}.grid{grid-template-columns:1fr}.governance{grid-template-columns:1fr}th,td{padding:10px}.shell{width:min(100% - 28px,1180px)} }
+    @media print { body{background:#fff}.masthead{padding-top:20px}.print{display:none}.shell{width:100%}main{padding-bottom:0}.section{break-inside:avoid} }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell">
+      <div><p class="eyebrow">Oculotronics / Internal Review</p><h1>软件与底层架构审查</h1><p class="subtitle">微眸医疗官网项目 · 基于当前源码与配置的技术资产盘点</p></div>
+      <button class="print" type="button" onclick="window.print()" aria-label="打印审查清单">打印</button>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="summary" aria-label="审查摘要">
+      <div><small>项目形态</small><strong>轻量全栈官网</strong></div>
+      <div><small>前端运行时</small><strong>React 19.2.4</strong></div>
+      <div><small>后端运行时</small><strong>Node.js 原生 HTTP</strong></div>
+      <div><small>数据持久化</small><strong>文件缓存 / 外部平台</strong></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>运行架构</h2><p>浏览器请求经 Node API 接入外部业务服务</p></div>
+      <div class="architecture">
+        <article class="node"><b>用户浏览器</b><p>Hash 路由<br>中英文切换<br>视频与表单交互</p></article>
+        <article class="node"><b>React 前端</b><p>React / React DOM<br>原生 CSS<br>Vite 构建产物</p></article>
+        <article class="node"><b>Node.js 服务</b><p>原生 HTTP API<br>静态资源托管<br>限流与请求校验</p></article>
+        <article class="node"><b>本地缓存</b><p>JSON 内容缓存<br>新闻与荣誉图片<br>无关系型数据库</p></article>
+        <article class="node external"><b>外部平台</b><p>飞书多维表格<br>腾讯地图<br>微信与翻译服务</p></article>
+      </div>
+    </section>
+
+    <section class="section grid">
+      <div class="panel"><h3>应用与开发软件</h3><table><thead><tr><th>类别</th><th>软件</th><th>用途</th></tr></thead><tbody>
+        <tr><td>前端</td><td>React 19.2.4<br>React DOM 19.2.4</td><td>页面渲染与生命周期管理</td></tr>
+        <tr><td>构建</td><td>Vite 7.3.6<br>esbuild / Terser</td><td>开发服务器、打包、压缩</td></tr>
+        <tr><td>兼容</td><td>@vitejs/plugin-legacy<br>Babel / Browserslist</td><td>旧浏览器兼容代码与 polyfill</td></tr>
+        <tr><td>后端</td><td>Node.js 核心模块</td><td>HTTP、文件、路径、加密摘要</td></tr>
+        <tr><td>验证</td><td>Google Chrome Headless<br>Chrome DevTools Protocol</td><td>交互、国际化与视觉回归检查</td></tr>
+        <tr><td>辅助</td><td>PowerShell / Python</td><td>素材与图片处理脚本</td></tr>
+      </tbody></table></div>
+      <div class="panel"><h3>已接入的外部服务</h3><table><thead><tr><th>服务</th><th>使用范围</th><th>状态</th></tr></thead><tbody>
+        <tr><td>飞书开放平台</td><td>线索表单、荣誉、新闻、文件</td><td><span class="tag on">已接入</span></td></tr>
+        <tr><td>飞书多维表格</td><td>内容后台与业务数据来源</td><td><span class="tag on">已接入</span></td></tr>
+        <tr><td>腾讯位置服务</td><td>JavaScript API GL、地址原生地理编码、地图标记</td><td><span class="tag on">已接入</span></td></tr>
+        <tr><td>微信公众平台 API</td><td>公众号文章及封面同步至飞书</td><td><span class="tag optional">可选，默认关闭</span></td></tr>
+        <tr><td>AI 翻译 HTTP 服务</td><td>视频字幕翻译；服务商由环境变量配置</td><td><span class="tag optional">可选</span></td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>安全与运行治理</h2><p>当前代码已包含的基础控制</p></div>
+      <div class="governance">
+        <article><h3>接口保护</h3><p>联系表单具备请求大小限制、IP 限流、并发限制、蜜罐字段和重复提交识别。</p></article>
+        <article><h3>凭证管理</h3><p>飞书、腾讯地图、微信和翻译服务凭证均从环境变量读取，不写入源码。</p></article>
+        <article><h3>内容可用性</h3><p>飞书新闻及荣誉同步至本地 JSON/图片缓存，外部服务暂时不可用时仍可读取缓存。</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><h2>明确未使用的技术</h2><p>用于审查范围界定</p></div>
+      <p class="note"><span class="tag none">未使用</span> 本项目未引入数据库、ORM、Express/Koa、TypeScript、Redux、UI 组件库、Docker、云函数、消息队列、监控平台或支付 SDK。后端为单一 Node.js 服务，持久化依赖本地文件缓存及飞书多维表格。</p>
+    </section>
+  </main>
+  <footer class="shell">审查依据：package.json、vite.config.js、server.js、src/main.jsx、.env.example。生成日期：2026-08-14。</footer>
+</body>
+</html>
