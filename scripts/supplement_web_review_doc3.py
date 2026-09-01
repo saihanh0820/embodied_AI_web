@@ -1,8 +1,8 @@
 from docx import Document
 from docx.shared import Pt
 
-SOURCE = r"C:\Users\weimo\Downloads\微眸医疗官网——代码架构与设计 (3).docx"
-OUTPUT = r"C:\Users\weimo\Downloads\微眸医疗官网——代码架构与设计 (3)-网页技术要点补充版.docx"
+SOURCE = r"C:\Users\weimo\Downloads\具身智能社团官网——代码架构与设计 (3).docx"
+OUTPUT = r"C:\Users\weimo\Downloads\具身智能社团官网——代码架构与设计 (3)-网页技术要点补充版.docx"
 
 doc = Document(SOURCE)
 doc.add_page_break()

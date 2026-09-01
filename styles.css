@@ -496,8 +496,9 @@ p {
 }
 
 .brand img {
-  width: 259px;
-  height: 35px;
+  width: 260px;
+  height: auto;
+  max-height: 62px;
   object-fit: contain;
 }
 
@@ -1512,7 +1513,8 @@ body[data-page="research"] .feature-copy p {
   position: absolute;
   left: 0;
   bottom: 0;
-  z-index: 0;
+  /* Keep the shared gray pedestal behind every product cutout. */
+  z-index: 1;
   inset: 0;
   width: auto;
   height: auto;
@@ -1525,7 +1527,19 @@ body[data-page="research"] .feature-copy p {
 }
 
 .home-feature .home-slide {
-  z-index: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.home-feature .home-slide .slide-visual {
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+}
+
+.home-feature .home-slide .slide-visual img {
+  position: relative;
+  z-index: 4;
 }
 
 .carousel-stage {
@@ -1567,7 +1581,7 @@ body[data-page="research"] .feature-copy p {
 
 .home-feature .feature-slide.is-product-exiting {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   inset: 0;
   display: block;
   pointer-events: none;
@@ -1607,7 +1621,8 @@ body[data-page="research"] .feature-copy p {
 
 .slide-machine::before,
 .slide-monitor::before,
-.slide-consumables::before {
+.slide-consumables::before,
+.slide-robot::before {
   content: "";
   position: absolute;
   left: 0;
@@ -1624,6 +1639,15 @@ body[data-page="research"] .feature-copy p {
   height: 100%;
   max-width: 100%;
   object-fit: contain;
+}
+
+.slide-robot img {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 650px);
+  height: 620px;
+  object-fit: contain;
+  transform: translateY(82px);
 }
 
 .ois-product-asset {
@@ -1826,14 +1850,14 @@ body[data-page="research"] .feature-copy p {
   height: 286px;
 }
 
-.product-line-media.is-pipelineSurgery {
+.product-line-media.is-pipelineOperation {
   left: 103px;
   top: 212px;
   width: 358px;
   height: 286px;
 }
 
-.product-line-media.is-pipelineSurgery > img {
+.product-line-media.is-pipelineOperation > img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1910,7 +1934,7 @@ body[data-page="research"] .feature-copy p {
 
 .about-strip,
 .safety-strip,
-.clinical-strip {
+.application-strip {
   --bg: none;
   position: relative;
   min-height: 520px;
@@ -1922,7 +1946,7 @@ body[data-page="research"] .feature-copy p {
 
 .about-strip::before,
 .safety-strip::before,
-.clinical-strip::before {
+.application-strip::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1946,7 +1970,7 @@ body[data-page="research"] .safety-strip::before {
 
 .about-strip .content,
 .safety-strip .content,
-.clinical-strip .content {
+.application-strip .content {
   position: relative;
 }
 
@@ -2750,6 +2774,22 @@ body[data-page="research"] .safety-strip::before {
   background-size: 680px 800px, 900px 1060px;
   opacity: 0.045;
   pointer-events: none;
+}
+
+/* The section describes the club's practice system, so use an engineering
+   grid instead of the circular milestone artwork used by the old history block. */
+.practice-system {
+  background: #f5f8ff;
+}
+
+.practice-system::before {
+  background-image:
+    linear-gradient(rgba(45, 98, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 98, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(135deg, transparent 0 66%, rgba(45, 98, 255, 0.06) 66% 66.15%, transparent 66.15%);
+  background-position: center, center, 0 0;
+  background-size: 48px 48px, 48px 48px, 100% 100%;
+  opacity: 0.75;
 }
 
 .history > .content {
@@ -4657,11 +4697,11 @@ body[data-page="ois"] .security-grid small {
   filter: brightness(1.08);
 }
 
-.clinical-copy {
+.application-copy {
   max-width: 560px;
 }
 
-.clinical-copy p {
+.application-copy p {
   color: rgba(255, 255, 255, 0.84);
   line-height: 2;
 }
@@ -4820,6 +4860,16 @@ body[data-page="ois"] .security-grid small {
 
 .footer-address-label {
   width: 3em;
+}
+
+
+.footer-contact-line {
+  display: flex;
+  align-items: flex-start;
+}
+
+.footer-contact-label {
+  flex: 0 0 5em;
 }
 
 /* Match the Chinese footer's grouped rhythm in English: labels introduce each
@@ -5159,16 +5209,16 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     margin-top: 52px;
   }
 
-  body[data-page="v3"] .clinical-strip {
+  body[data-page="v3"] .application-strip {
     min-height: 540px;
     background-position: center;
   }
 
-  body[data-page="v3"] .clinical-strip::before {
+  body[data-page="v3"] .application-strip::before {
     background: rgba(21, 82, 253, 0.55);
   }
 
-  body[data-page="v3"] .clinical-strip .content {
+  body[data-page="v3"] .application-strip .content {
     min-height: 540px;
     padding: 84px 0 66px;
     display: flex;
@@ -5176,7 +5226,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     justify-content: space-between;
   }
 
-  body[data-page="v3"] .clinical-timeline {
+  body[data-page="v3"] .application-timeline {
     width: 720px;
     max-width: calc(100% - 238px);
     margin-left: 238px;
@@ -5184,23 +5234,23 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     border-left: 1px solid rgba(255, 255, 255, 0.72);
   }
 
-  body[data-page="v3"] .clinical-timeline p {
+  body[data-page="v3"] .application-timeline p {
     position: relative;
     margin: 0 0 28px;
     font-size: 14px;
     line-height: 1.9;
   }
 
-  body[data-page="v3"] .clinical-timeline p:last-child {
+  body[data-page="v3"] .application-timeline p:last-child {
     margin-bottom: 0;
   }
 
-  body[data-page="v3"] .clinical-timeline p:nth-child(2) {
+  body[data-page="v3"] .application-timeline p:nth-child(2) {
     width: 460px;
     max-width: 100%;
   }
 
-  body[data-page="v3"] .clinical-timeline p::before {
+  body[data-page="v3"] .application-timeline p::before {
     content: "";
     position: absolute;
     left: -25px;
@@ -5265,7 +5315,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     display: block;
   }
   body[data-page="home"] .home-slide {
-    z-index: 1;
+    z-index: 2;
   }
   body[data-page="home"] .home-slide .slide-visual::before {
     display: none;
@@ -5277,7 +5327,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     width: 519px;
     height: 448px;
     min-height: 0;
-    overflow: hidden;
+    overflow: visible;
   }
   body[data-page="home"] .machine-slide .slide-visual {
     top: 226px;
@@ -5321,6 +5371,38 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     top: 216px;
   }
 
+  /* Keep the two transparent robot cutouts optically grounded on the shared
+     pedestal while allowing each source silhouette to use its own width. */
+  body[data-page="home"] .ois-slide .slide-visual {
+    top: 194px;
+    width: 620px;
+    height: 452px;
+    z-index: 2;
+    overflow: visible;
+  }
+
+  body[data-page="home"] .ois-slide .slide-visual img {
+    position: relative;
+    z-index: 3;
+    width: 580px;
+    height: 580px;
+    object-fit: contain;
+    transform: translateY(76px);
+  }
+
+  body[data-page="home"] .consumables-slide .slide-visual {
+    top: 178px;
+    width: 620px;
+    height: 468px;
+  }
+
+  body[data-page="home"] .consumables-slide .slide-visual img {
+    width: 620px;
+    height: 620px;
+    object-fit: contain;
+    transform: translateY(56px);
+  }
+
   body[data-page="home"] .slide-consumables img {
     width: 620px;
     height: auto;
@@ -5334,7 +5416,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
   }
   body[data-page="home"] .about-strip,
   body[data-page="research"] .safety-strip,
-  body[data-page="v3"] .clinical-strip { min-height: 800px; }
+  body[data-page="v3"] .application-strip { min-height: 800px; }
   body[data-page="home"] .about-strip {
     height: 800px;
     min-height: 800px;
@@ -5627,7 +5709,9 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
   }
 
   .brand img {
-    width: 144px;
+    width: 180px;
+    height: auto;
+    max-height: 48px;
   }
 
   .menu-toggle {
@@ -5793,7 +5877,8 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
 
   .slide-machine::before,
   .slide-monitor::before,
-  .slide-consumables::before {
+  .slide-consumables::before,
+  .slide-robot::before {
     left: -18px;
     width: calc(100% + 36px);
   }
@@ -5804,6 +5889,26 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     top: auto;
     width: min(185%, 960px);
     transform: translate(-48px, 28px);
+  }
+
+  .slide-robot img {
+    width: min(100%, 560px);
+    height: 430px;
+    transform: none;
+  }
+
+  body[data-page="home"] .ois-slide .slide-visual,
+  body[data-page="home"] .consumables-slide .slide-visual {
+    top: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  body[data-page="home"] .ois-slide .slide-visual img,
+  body[data-page="home"] .consumables-slide .slide-visual img {
+    width: min(100%, 560px);
+    height: 430px;
+    transform: none;
   }
 
   .carousel-arrow {
@@ -6666,6 +6771,12 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     transform: translate(-34px, 20px);
   }
 
+  .slide-robot img {
+    width: 100%;
+    height: 330px;
+    transform: none;
+  }
+
   .ois-monitor-card {
     width: min(100%, 330px);
   }
@@ -6867,7 +6978,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     height: 540px;
   }
 
-  body[data-page="v3"] .clinical-strip {
+  body[data-page="v3"] .application-strip {
     height: 540px;
     min-height: 540px;
   }
@@ -7025,7 +7136,13 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
   }
 
   .home-hero .hero-copy > span {
-    display: none;
+    display: block;
+    margin-bottom: 14px;
+    color: #5f88ff;
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    opacity: 1;
   }
 
   .home-hero .hero-copy h1 {
@@ -7268,7 +7385,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     padding-bottom: 106px;
   }
 
-  .product-line-media.is-pipelineSurgery {
+  .product-line-media.is-pipelineOperation {
     right: auto;
     bottom: auto;
     left: 54px;
@@ -7984,7 +8101,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     margin-bottom: 120px;
   }
 
-  body[data-page="v3"] .clinical-strip {
+  body[data-page="v3"] .application-strip {
     margin-bottom: 120px;
   }
 
@@ -8090,15 +8207,15 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
   }
 }
 
-/* V3 clinical scene: this artwork is a 1920 × 800 artboard.  Preserve that
+/* V3 application scene: this artwork is a 1920 × 800 artboard.  Preserve that
    ratio and keep its annotations on the original design coordinates. */
 @media (min-width: 981px) {
-  body[data-page="v3"] .clinical-strip {
+  body[data-page="v3"] .application-strip {
     /* The image and its annotations share a 1920 × 800 design canvas.
        Keep both on the same ratio instead of capping at 800px: browser zoom
        changes the CSS viewport width, so the cap made 100% and 80% render at
        different visual proportions. */
-    --clinical-scale: 1;
+    --application-scale: 1;
     width: 100%;
     height: auto;
     aspect-ratio: 1920 / 800;
@@ -8109,22 +8226,22 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     background-size: 100% 100%;
   }
 
-  body[data-page="v3"] .clinical-strip::before {
+  body[data-page="v3"] .application-strip::before {
     display: none;
   }
 
-  body[data-page="v3"] .clinical-strip .content {
+  body[data-page="v3"] .application-strip .content {
     width: 1200px;
     max-width: none;
     height: 800px;
     min-height: 0;
     padding: 136px 0 66px;
     box-sizing: border-box;
-    transform: scale(var(--clinical-scale));
+    transform: scale(var(--application-scale));
     transform-origin: top center;
   }
 
-  body[data-page="v3"] .clinical-timeline {
+  body[data-page="v3"] .application-timeline {
     width: 720px;
     max-width: calc(100% - 68px);
     margin-left: 68px;
@@ -8133,7 +8250,7 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     border-left: 0;
   }
 
-  body[data-page="v3"] .clinical-timeline::before {
+  body[data-page="v3"] .application-timeline::before {
     content: "";
     position: absolute;
     left: 0;
@@ -8143,58 +8260,58 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     background: rgba(255, 255, 255, 0.72);
   }
 
-  body[data-page="v3"] .clinical-timeline p {
+  body[data-page="v3"] .application-timeline p {
     margin-bottom: 46px;
     font-size: 20px;
     line-height: 1.45;
   }
 
-  body[data-page="v3"] .clinical-timeline p:nth-child(2) {
+  body[data-page="v3"] .application-timeline p:nth-child(2) {
     width: 650px;
   }
 
   /* The Chinese reading column maps to the marked edge on the 1920px scene. */
-  html[lang="zh-CN"] body[data-page="v3"] .clinical-timeline {
+  html[lang="zh-CN"] body[data-page="v3"] .application-timeline {
     width: 571px;
   }
 
-  html[lang="zh-CN"] body[data-page="v3"] .clinical-timeline p:nth-child(2) {
+  html[lang="zh-CN"] body[data-page="v3"] .application-timeline p:nth-child(2) {
     width: 100%;
   }
 
-  html[lang="zh-CN"] body[data-page="v3"] .clinical-timeline p {
+  html[lang="zh-CN"] body[data-page="v3"] .application-timeline p {
     text-align: justify;
     text-justify: inter-character;
   }
 
   /* Let English milestones grow with their translated copy while preserving
      a common responsive column and its marker-to-marker connectors. */
-  html[lang="en"] body[data-page="v3"] .clinical-timeline {
+  html[lang="en"] body[data-page="v3"] .application-timeline {
     grid-template-rows: none;
     grid-auto-rows: auto;
     row-gap: 50px;
   }
 
-  html[lang="en"] body[data-page="v3"] .clinical-timeline p,
-  html[lang="en"] body[data-page="v3"] .clinical-timeline p:nth-child(2) {
+  html[lang="en"] body[data-page="v3"] .application-timeline p,
+  html[lang="en"] body[data-page="v3"] .application-timeline p:nth-child(2) {
     width: 100%;
     height: auto;
     text-align: justify;
     text-justify: inter-word;
   }
 
-  body[data-page="v3"] .clinical-timeline p::before {
+  body[data-page="v3"] .application-timeline p::before {
     left: -33px;
     top: 4px;
   }
 
   /* English copy wraps to more lines. Draw only the two connecting segments
      so the line always finishes at the final timeline marker. */
-  html[lang="en"] body[data-page="v3"] .clinical-timeline::before {
+  html[lang="en"] body[data-page="v3"] .application-timeline::before {
     display: none;
   }
 
-  html[lang="en"] body[data-page="v3"] .clinical-timeline p:not(:last-child)::after {
+  html[lang="en"] body[data-page="v3"] .application-timeline p:not(:last-child)::after {
     content: "";
     position: absolute;
     left: -24px;
@@ -8204,13 +8321,13 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     background: rgba(255, 255, 255, 0.72);
   }
 
-  html[lang="en"] body[data-page="v3"] .clinical-timeline p:nth-last-child(2)::after {
+  html[lang="en"] body[data-page="v3"] .application-timeline p:nth-last-child(2)::after {
     bottom: -50px;
     height: auto;
   }
 
   body[data-page="v3"] .metric-row.light {
-    /* Keep the statistics inside the 1920 × 800 clinical-scene artboard.
+    /* Keep the statistics inside the 1920 × 800 application-scene artboard.
        As a flex item it could be pushed below the clipped canvas when the
        timeline wraps, leaving only the top of the figures visible. */
     position: absolute;
@@ -8241,13 +8358,13 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
   }
 }
 
-/* V3 clinical strip: match the compact reference composition. */
+/* V3 application strip: match the compact reference composition. */
 @media (min-width: 981px) {
-  body[data-page="v3"] .clinical-strip .content {
+  body[data-page="v3"] .application-strip .content {
     padding-top: 88px;
   }
 
-  body[data-page="v3"] .clinical-timeline {
+  body[data-page="v3"] .application-timeline {
     margin-left: 74px;
     display: grid;
     /* The second milestone wraps to two lines; reserve that extra line so
@@ -8256,13 +8373,13 @@ html[lang="en"] .footer-phone-continuation .footer-address-value {
     align-content: start;
   }
 
-  body[data-page="v3"] .clinical-timeline p {
+  body[data-page="v3"] .application-timeline p {
     margin: 0;
     min-height: 0;
     height: 100%;
   }
 
-  body[data-page="v3"] .clinical-timeline::before {
+  body[data-page="v3"] .application-timeline::before {
     top: 13px;
     /* Stop at the center of the final node instead of extending below it. */
     bottom: 91px;
@@ -8538,3 +8655,4 @@ body[data-page="news"] .pagination button.page-number.active:active {
     flex-basis: 34px;
   }
 }
+

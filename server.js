@@ -8,9 +8,7 @@ const root = __dirname;
 const staticRoot = fs.existsSync(path.join(root, "dist", "index.html"))
   ? path.join(root, "dist")
   : root;
-// Prefer the conventional local filename, while retaining the project's existing config filename.
 loadEnv(path.join(root, ".env"));
-loadEnv(path.join(root, "weimou_web.env"));
 const port = Number(process.env.API_PORT || 8787);
 const httpsEnabled = /^true$/i.test(String(process.env.HTTPS_ENABLED || "false").trim());
 const httpsOptions = getHttpsOptions();
@@ -1290,7 +1288,7 @@ function hasNewsYear(value) {
 
 function normalizeNewsCategory(value) {
   const category = String(value || "").trim().toLowerCase();
-  if (["company", "企业新闻", "微眸动态", "公司新闻"].includes(category)) return "company";
+  if (["company", "企业新闻", "具身智能社团动态", "公司新闻"].includes(category)) return "company";
   if (["knowledge", "知识科普", "科普文章"].includes(category)) return "knowledge";
   if (["media", "媒体报道", "行业资讯", "行业新闻"].includes(category)) return "media";
   return "media";

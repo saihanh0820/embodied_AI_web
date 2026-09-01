@@ -264,7 +264,7 @@ def build_document():
 
     doc.core_properties.title = "weimou_web 软件与底层架构审查"
     doc.core_properties.subject = "软件资产与架构审查"
-    doc.core_properties.author = "微眸医疗"
+    doc.core_properties.author = "具身智能社团"
     doc.core_properties.comments = "Generated from project source review."
     doc.save(OUTPUT)
     print(OUTPUT)

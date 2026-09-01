@@ -8,21 +8,21 @@ const MAP_PRELOAD_RADIUS = 1;
 const preloadedTiles = new Map();
 
 // Fixed coordinates keep this map deterministic and avoid a runtime geocoder/API key.
-// The marker is the Yuexiu office shown in the contact details. AMap tiles use
+// The marker is the Qingdao City University campus used by the industry college. AMap tiles use
 // GCJ-02, so convert the WGS-84 source coordinate before placing the marker.
 const OFFICE = {
-  title: "微眸医疗（越秀办公室）",
-  address: "广州市越秀区先烈中路65号东山广场附楼10楼",
-  position: [23.139040,113.288813]
+  title: "具身智能社团（青岛城市学院）",
+  address: "青岛城市学院·宇树科技产业学院",
+  position: [36.3342,120.4305]
 };
 
 // This location is added as an additional marker only. The contact map keeps
 // the Yuexiu office as its initial view when the page opens.
 const NANSHA_OFFICE = {
-  title: "微眸医疗（南沙办公室）",
-  address: "广州市南沙区珠江街南江二路6号自编8栋(9#楼)8层803",
+  title: "具身智能社团（产业学院实训中心）",
+  address: "宇树科技产业学院机器人实验室",
   // Supplied AMap/GCJ-02 coordinate: [latitude, longitude].
-  position: [22.726913, 113.529233]
+  position: [36.3336, 120.4314]
 };
 
 function outOfChina(latitude, longitude) {

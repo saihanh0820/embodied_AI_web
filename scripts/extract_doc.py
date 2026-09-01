@@ -1,6 +1,6 @@
 import glob
 from docx import Document
-p = [x for x in glob.glob(r'C:\Users\weimo\Downloads\*.docx') if '微眸医疗官网' in x][0]
+p = [x for x in glob.glob(r'C:\Users\weimo\Downloads\*.docx') if '具身智能社团官网' in x][0]
 d = Document(p)
 print('FILE', p)
 for x in d.paragraphs:

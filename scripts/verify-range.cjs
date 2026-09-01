@@ -2,7 +2,7 @@ const { spawn } = require("child_process");
 const http = require("http");
 
 const port = 8793;
-const child = spawn(process.execPath, ["weimou_web_server.js"], {
+const child = spawn(process.execPath, ["server.js"], {
   env: { ...process.env, API_PORT: String(port) },
   stdio: "ignore"
 });

@@ -1,22 +1,24 @@
 const RAW = "assets/raw/";
 const ABOUT_VIDEO_SRC = `${RAW}关于我们-视频介绍.mp4`;
-const RESEARCH_VIDEO_SRC = `${RAW}显微注射控制系统-观看视频.mp4`;
+const RESEARCH_VIDEO_SRC = `${RAW}精密操作控制系统-观看视频.mp4`;
 const V3_VIDEO_SRC = `${RAW}WMOX-22001-视频介绍.mp4`;
 import { localeText } from "./i18n.js";
 const ASSET = {
-  logo: "d309189ca12c767a097fe943330196efaff60e85.png",
-  footerLogo: "Oculotronics@3x.png",
+  logo: "logo-embodied-intelligence.png",
+  footerLogo: "logo-embodied-intelligence.png",
   qr: "weimou-qr.png",
-  homeHero: "19bca2b1a2728d88250335701993ade03f7fce6a.png",
+  homeHero: "home-hero-club-event.jpg",
   homeProduct: "2a944ad6bab39e6b1b06395f605ebc148ce58b5c.png",
   homeCarouselInjection: "images/home/home-carousel-injection.png",
   homeCarouselOis: "images/home/home-carousel-ois.png",
   homeCarouselConsumables: "images/home/home-carousel-consumables.png",
+  homeCarouselG1: "images/home/unitree-g1.png",
+  homeCarouselAs2: "images/home/as2-replacement.png",
+  homeCarouselH2: "images/home/robot_cutout.png",
   homeCarouselBackground: "images/home/home-carousel-background.png",
   aboutHero: "about-hero-20260805.png",
   aboutVideo: "about-video-cover.jpg",
   directionControls: "direction-controls@2x.png",
-  historyDecor: "82e1a9859b95430bc481105a902fe41c2f681f6a.png",
   office: "open-office@2x.png",
   meeting: "dfe972122455ff20913d4493d3ce87e0e2b2b6e8.png",
   patentCertificate: "ddd4daa1bb8c9c74ee73ad7d60bc266088a40305.png",
@@ -46,7 +48,7 @@ const ASSET = {
   animalDogCrop: "animal-dog-cutout.png",
   animalSheepCrop: "animal-sheep.png",
   animalPigCrop: "animal-pig.png",
-  relatedSurgery: "v3-related@2x.png",
+  relatedOperation: "v3-related@2x.png",
   productConsumables: "a2e2051da0c4b759f53a4167a1b2a62b7354ce95.png",
   oisHero: "f487753c4044538b70a096c3621898bab09b323d.png",
   oisTablet: "images/products/ois/tablet-frame@2x.png",
@@ -72,9 +74,9 @@ const ASSET = {
   v3PrecisionIcon: "images/products/v3/precision-icon.svg",
   v3ModularIcon: "images/products/v3/modular-icon.svg",
   v3ArmIcon: "images/products/v3/robot-arm-icon.svg",
-  surgeryScene: "images/products/v3/lab-clinical-scene-tinted.png",
-  v3RelatedInjection: "images/products/v3/micro-ophthalmic-injection-system@2x.png",
-  v3RelatedConsumables: "images/products/v3/surgical-consumables@2x.png",
+  operationScene: "images/products/v3/lab-application-scene-tinted.png",
+  v3RelatedInjection: "images/products/v3/micro-embodied intelligence-injection-system@2x.png",
+  v3RelatedConsumables: "images/products/v3/robotic-consumables@2x.png",
   v4Hero: "ed05aaf4ddb997670d10f105b6f1fd8f40c477ca.png",
   consumablesHeroReplacement: "images/consumables/consumables-hero-replacement.png",
   consumablesHeroRadial: "images/consumables/hero-radial-blue.png",
@@ -86,32 +88,31 @@ const ASSET = {
   metalPackage: "images/consumables/metal-package@2x.png",
   pipettePackage: "images/consumables/plastic-package.png",
   pipetteNeedle: "images/consumables/pipette-needle.png",
-  injector: "images/consumables/retinal-injector.png",
+  injector: "images/consumables/vision-injector.png",
   consumablesContactRings: "images/consumables/contact-rings.png",
   consumablesRelatedInjection: "images/consumables/related-injection-system@2x.png",
   consumablesRelatedOis: "images/consumables/related-ois@2x.png",
   instrumentForceps: "images/consumables/micro-forceps.png",
   instrumentPackaging: "images/consumables/micro-forceps-packaging.png",
-  surgicalConsumablesKit: "images/consumables/surgical-consumables-kit@2x.png",
+  roboticConsumablesKit: "images/consumables/robotic-consumables-kit@2x.png",
   handheldMicroinjectionKit: "images/consumables/handheld-microinjection-kit@2x.png",
   mouseFixture: "images/consumables/mouse-fixture@2x.png",
   mousePlatform: "images/consumables/mouse-platform@2x.png",
   guineaPigPlatform: "images/consumables/guinea-pig-platform@2x.png",
   pipetteFillingPlug: "images/consumables/pipette-filling-plug@2x.png",
   irrigator: "images/consumables/irrigator@2x.png",
-  pipelineSurgery: "21be462bccb73ee0ec6c6be95b01896863a78356.png",
+  pipelineOperation: "21be462bccb73ee0ec6c6be95b01896863a78356.png",
   pipelineInjection: "images/home/pipeline-injection-system.png",
   pipelineOis: "images/products/ois/ois-product-monitor.png",
-  pipelineConsumables: "images/consumables/surgical-consumables-hero.png",
+  pipelineConsumables: "images/consumables/robotic-consumables-hero.png",
 };
 
 const CONTACT = {
-  company: "广州市微眸医疗器械有限公司",
-  addressA: "广州市南沙区珠江街南江二路6号自编8栋(9#楼)8层803",
-  addressB: "广州市越秀区先烈中路65号东山广场附楼10楼",
-  sales: "19120679708（销售专线）",
-  phone: "020-22886136",
-  email: "666666@66.com"
+  company: "宇树科技产业学院-具身智能社团",
+  addressA: "青岛城市学院·宇树科技产业学院",
+  addressB: "具身智能社团活动与实训中心",
+  sales: "社团学生咨询（校内）",
+  phone: "李莹莹主任 丁润霞老师"
 };
 
 const img = (key) => ASSET[key].includes("/") ? `assets/${ASSET[key]}` : RAW + ASSET[key];
@@ -139,7 +140,6 @@ function loadNewsData({ force = false } = {}) {
     });
   return newsRequest;
 }
-
 function prefetchNewsData() {
   loadNewsData().catch(() => {});
 }
@@ -169,9 +169,9 @@ const newsYearFilterOptions = (dates) => [
 ].join("");
 
 const oisTabs = [
-  ["import", "录入信息", "快速录入患者信息及图像", "快速导入眼科不同类别的多模态检查图像，统一归档病例。", "oisWorkflowImport", "oisTabMediaIcon"],
-  ["process", "图像处理", "一体化处理", "在同一工作台内完成浏览、标注、对比、随访记录等常用操作。", "oisWorkflowProcess", "oisTabEditIcon"],
-  ["archive", "患者档案", "病例管理", "整合患者档案、检查数据和手术记录，建立连续可追踪的诊疗信息流。", "oisWorkflowArchive", "oisArchiveIcon"]
+  ["import", "项目录入", "快速建立项目", "录入任务目标、设备配置和成员分工，统一创建项目工作区。", "oisWorkflowImport", "oisTabMediaIcon"],
+  ["process", "过程记录", "一体化协作", "在同一工作台内完成代码、数据、日志和测试结果的整理。", "oisWorkflowProcess", "oisTabEditIcon"],
+  ["archive", "成果归档", "版本可追溯", "整合任务书、代码版本、演示视频和复盘记录，方便项目交接。", "oisWorkflowArchive", "oisArchiveIcon"]
 ];
 
 const svgIcon = (kind) => {
@@ -212,7 +212,7 @@ const sectionTitle = (title, copy = "", align = "center") =>
 export function header() {
   return `
     <div class="nav-shell">
-      <a class="brand" href="#/home" aria-label="微眸医疗首页"><img src="${img("logo")}" alt="Oculotronics 微眸"></a>
+      <a class="brand" href="#/home" aria-label="具身智能社团首页"><img src="${img("logo")}" alt="具身智能社团 Qingdao City University"></a>
       <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
       <nav class="main-nav" id="main-nav" aria-label="主导航">
         <a data-route="home" href="#/home">首页</a>
@@ -220,22 +220,22 @@ export function header() {
         <div class="nav-products">
           <a data-route="products" href="#/research" aria-haspopup="true">产品中心</a>
           <div class="product-menu" aria-label="产品中心菜单">
-            <a href="#/research">药物精准递送系统</a>
+            <a href="#/research">精准任务执行系统</a>
             <div class="product-menu-branch">
-              <a href="#/v3" aria-haspopup="true">显微手术控制系统</a>
-              <div class="product-submenu" aria-label="显微手术控制系统产品">
+              <a href="#/v3" aria-haspopup="true">高精度动作控制系统</a>
+              <div class="product-submenu" aria-label="高精度动作控制系统产品">
                 <a href="#/v3">WMOX-22001</a>
                 <a href="#/v4">WMOX-24001</a>
               </div>
             </div>
-            <a href="#/ois">OIS眼科图像处理系统</a>
-            <a href="#/consumables">手术耗材</a>
+            <a href="#/ois">项目资料与代码协同平台</a>
+            <a href="#/consumables">机器人组件</a>
           </div>
         </div>
         <a data-route="news" href="#/news">新闻中心</a>
         <a data-route="support" href="#/support">服务支持</a>
         <a class="lang" href="#/home" data-language aria-label="当前语言：简体中文">CN</a>
-        <a class="nav-cta" data-route="contact" href="#/contact">联系我们</a>
+        <a class="nav-cta" data-footer-link href="#/home">联系我们</a>
       </nav>
     </div>`;
 }
@@ -248,10 +248,10 @@ export function footer() {
   return `
     <div class="footer-inner">
       <div class="footer-company">
-        <img src="${img("footerLogo")}" alt="Oculotronics">
+        <img src="${img("footerLogo")}" alt="具身智能社团 Qingdao City University">
         <p>${CONTACT.company}</p>
-        <p>电话：${CONTACT.sales}</p>
-        <p class="footer-phone-continuation"><span class="footer-address-label" aria-hidden="true"></span><span class="footer-address-value">${CONTACT.phone}</span></p>
+        <p class="footer-contact-line"><span class="footer-contact-label">联系方式：</span><span class="footer-contact-value">${CONTACT.sales}</span></p>
+        <p class="footer-contact-line"><span class="footer-contact-label" aria-hidden="true"></span><span class="footer-contact-value">${CONTACT.phone}</span></p>
         <p><span class="footer-address-label">地址：</span><span class="footer-address-value">${CONTACT.addressA}</span></p>
         <p><span class="footer-address-label" aria-hidden="true"></span><span class="footer-address-value">${CONTACT.addressB}</span></p>
       </div>
@@ -259,11 +259,11 @@ export function footer() {
         <strong>网站导航</strong>
         <a href="#/home">首页</a><a href="#/news">新闻信息</a>
         <a href="#/about">关于我们</a><a href="#/support">服务支持</a>
-        <a href="#/research">产品中心</a><a href="#/contact">联系我们</a>
+        <a href="#/research">产品中心</a><a data-footer-link href="#/home">联系我们</a>
       </div>
       <div class="footer-qr">
-        <img src="${img("qr")}" alt="微眸机器人二维码">
-        <span>微眸机器人</span>
+        <img src="${img("qr")}" alt="具身智能社团二维码">
+        <span>具身智能社团</span>
       </div>
     </div>`;
 }
@@ -301,10 +301,10 @@ function contactBand() {
   return `
     <section class="contact-band reveal">
       <div>
-        <h3>联系我们，获取更多产品讯息</h3>
-        <p class="band-copy">获取更多产品咨询</p>
+        <h3>加入社团，参与真实机器人项目</h3>
+        <p class="band-copy">了解招新、实训和竞赛安排</p>
       </div>
-      ${button("获取方案", "#/contact")}
+      <a class="button button-sweep" data-footer-link href="#/home"><span class="button-label">加入社团</span></a>
     </section>`;
 }
 
@@ -314,18 +314,18 @@ function contactBand() {
  */
 function relatedProducts(exclude = "") {
   const catalog = [
-    ["research", "homeProduct", "药物精准递送系统", "多自由度运动 / 微米级精度 / 高稳定性操作"],
-    ["ois", "productConsumables", "OIS眼科图像处理系统", "全面兼容 / 安全可信 / 多维标注"],
-    ["consumables", "v3RelatedConsumables", "手术耗材", "移液针 / 注射器械"],
-    ["v3", "relatedSurgery", "显微眼科手术控制系统", "V3.0 / V4.0"]
+    ["research", "homeProduct", "机器人开发实训平台", "运动控制 / 感知交互 / 任务验收"],
+    ["ois", "productConsumables", "项目资料与代码协同平台", "代码管理 / 日志记录 / 成果归档"],
+    ["consumables", "v3RelatedConsumables", "机器人开发套件", "末端工具 / 连接组件"],
+    ["v3", "relatedOperation", "高精度具身智能控制系统", "V3.0 / V4.0"]
   ];
   const v3CatalogOverrides = {
-    research: ["research", "v3RelatedInjection", "药物精准递送系统", "基础版 / 旗舰版"],
-    consumables: ["consumables", "v3RelatedConsumables", "手术耗材", "移液针 / 注射套装"]
+    research: ["research", "v3RelatedInjection", "机器人开发实训平台", "基础任务 / 进阶项目"],
+    consumables: ["consumables", "v3RelatedConsumables", "机器人开发套件", "末端工具 / 实训套装"]
   };
   const consumablesCatalogOverrides = {
-    research: ["research", "consumablesRelatedInjection", "药物精准递送系统", "基础版 / 旗舰版"],
-    ois: ["ois", "consumablesRelatedOis", "OIS眼科图像处理软件", "全面兼容 / 安全可信 / 多维标注"]
+    research: ["research", "consumablesRelatedInjection", "机器人开发实训平台", "基础任务 / 进阶项目"],
+    ois: ["ois", "consumablesRelatedOis", "项目资料与代码协同平台", "代码管理 / 日志记录 / 成果归档"]
   };
   const recommendationOrder = {
     research: ["consumables", "v3"],
@@ -386,60 +386,60 @@ function productFeature({ index, title, copy, image, reverse = false, lineArt = 
  */
 export function homePage() {
   const lineCards = [
-    { title: "显微手术控制系统", copy: "微米级精度　微量匀速注射　高稳定性", href: "#/v3", image: "pipelineSurgery" },
-    { title: "药物精准递送系统", copy: "视网膜下精准注射　疾病模型精准构建", href: "#/research", image: "pipelineInjection" },
-    { title: "OIS眼科图像处理系统", copy: "全面兼容　安全可信　多维标注", href: "#/ois", image: "pipelineOis" },
-    { title: "手术耗材", copy: "耐用　长寿命　功能齐全", href: "#/consumables", image: "pipelineConsumables" }
+    { title: "运动控制实训", copy: "关节控制　轨迹规划　现场调试", href: "#/v3", image: "pipelineOperation" },
+    { title: "感知与交互", copy: "视觉感知　任务规划　人机协作", href: "#/research", image: "pipelineInjection" },
+    { title: "项目资料平台", copy: "代码管理　数据记录　成果归档", href: "#/ois", image: "pipelineOis" },
+    { title: "机器人开发套件", copy: "末端工具　结构件　实训配件", href: "#/consumables", image: "pipelineConsumables" }
   ];
 
   return `
     ${pageHero({
       image: "homeHero",
-      eyebrow: "OCULOTRONICS",
-      title: "引领眼科智慧医疗<br>守护全球健康视界",
-      copy: "打破界限，让“智慧医疗”的光照进眼底，<br class=\"home-hero-copy-break\">让眼底手术机器人真正成为医生更亮的眼，更稳 、更长的手",
+      eyebrow: "QINGDAO CITY UNIVERSITY × UNITREE",
+      title: "把课堂连接到真实机器人<br>让每个想法都能跑起来",
+      copy: "青岛城市学院-宇树科技产业学院具身智能社团，<br class=\"home-hero-copy-break\">围绕宇树机器人开展课程实践、项目实训与竞赛协作。",
       className: "home-hero"
     })}
     <section class="home-feature" data-product-carousel data-carousel aria-label="产品展示轮播" tabindex="0">
       <div class="slider-dots" role="tablist" aria-label="选择产品">
-        <button class="active" type="button" role="tab" aria-selected="true" aria-label="药物精准递送系统" data-carousel-dot="0"></button>
-        <button type="button" role="tab" aria-selected="false" aria-label="OIS眼科图像处理系统" data-carousel-dot="1"></button>
-        <button type="button" role="tab" aria-selected="false" aria-label="手术耗材" data-carousel-dot="2"></button>
+        <button class="active" type="button" role="tab" aria-selected="true" aria-label="G1" data-carousel-dot="0"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="A2" data-carousel-dot="1"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="H2" data-carousel-dot="2"></button>
       </div>
       <div class="carousel-stage">
         <article class="feature-slide home-slide machine-slide active" data-carousel-slide>
           <div class="content feature-split">
-            <div class="slide-visual slide-machine">
-              <img src="${img("homeCarouselInjection")}" alt="药物精准递送系统">
+            <div class="slide-visual slide-robot">
+              <img src="${img("homeCarouselG1")}" alt="G1 人形机器人">
             </div>
             <div class="slide-copy">
-              <h2>药物精准递送系统</h2>
-              <p>视网膜下精准注射 / 疾病模型精准构建</p>
-              ${button("了解更多", "#/research", false, false)}
+              <h2>G1</h2>
+              <p>人形机器人平台，适合开展运动控制、视觉感知与人机交互等具身智能实验。</p>
+              ${button("了解更多", "#/v3", false, false)}
             </div>
           </div>
         </article>
         <article class="feature-slide home-slide ois-slide" data-carousel-slide>
           <div class="content feature-split">
-            <div class="slide-visual slide-monitor">
-              ${lazyImg("homeCarouselOis", "OIS眼科图像处理系统", "ois-product-asset")}
+            <div class="slide-visual slide-robot">
+              ${lazyImg("homeCarouselAs2", "A2 四足机器人", "robot-product-asset")}
             </div>
             <div class="slide-copy">
-              <h2>OIS眼科图像处理系统</h2>
-              <p>全面兼容 / 安全可信 / 多维标注</p>
-              ${button("了解更多", "#/ois", false, false)}
+              <h2>A2</h2>
+              <p>高性能四足机器人平台，适用于复杂地形运动、智能导航与自主巡检任务。</p>
+              ${button("了解更多", "#/v3", false, false)}
             </div>
           </div>
         </article>
         <article class="feature-slide home-slide consumables-slide" data-carousel-slide>
           <div class="content feature-split">
-            <div class="slide-visual slide-consumables">
-              ${lazyImg("homeCarouselConsumables", "手术耗材")}
+            <div class="slide-visual slide-robot">
+              ${lazyImg("homeCarouselH2", "H2 人形机器人", "robot-product-asset")}
             </div>
             <div class="slide-copy">
-              <h2>手术耗材</h2>
-              <p>微针系列 / 注吸器 / 一次性无菌耗材</p>
-              ${button("了解更多", "#/consumables", false, false)}
+              <h2>H2</h2>
+              <p>新一代人形机器人平台，支持全身协同、灵巧操作与综合任务开发。</p>
+              ${button("了解更多", "#/v3", false, false)}
             </div>
           </div>
         </article>
@@ -447,7 +447,7 @@ export function homePage() {
     </section>
     <section class="product-line section-pad">
       <div class="content">
-        ${sectionTitle("产品管线")}
+        ${sectionTitle("实践模块")}
         <div class="product-line-carousel" data-product-line>
           <button class="product-line-arrow direction-control prev" type="button" aria-label="上一组产品" data-line-prev style="--direction-sprite:url('${img("directionControls")}')"></button>
           <div class="product-line-viewport">
@@ -470,19 +470,19 @@ export function homePage() {
     <section class="about-strip" style="--bg:url('${img("meeting")}')">
       <div class="content reveal">
         <div class="about-strip-head">
-          <h2>关于微眸</h2>
+          <h2>关于我们</h2>
           <div class="about-stats">
             <div class="about-stat">
-              <div class="about-stat__value">15<span>年</span></div>
-              <p>技术积累</p>
+              <div class="about-stat__value">4<span>类</span></div>
+              <p>实践方向</p>
             </div>
             <div class="about-stat">
-              <div class="about-stat__value">125<span>项</span></div>
-              <p>知识产权</p>
+              <div class="about-stat__value">3<span>段</span></div>
+              <p>成长路径</p>
             </div>
           </div>
         </div>
-        <p>我们聚焦于眼科赛道，专注于高精度显微眼科手术机器人及其相关创新技术，致力于推动显微外科手术的革新，把眼科手术智能自动化带给每个医生、每个患者，造福人类，助力未来医疗全面智慧化。</p>
+        <p>我们是青岛城市学院-宇树科技产业学院下属社团，依托宇树机器人平台开展具身智能学习与工程实践。社团把课程、实验室和竞赛项目串成一条可执行的成长路径：成员从基础控制开始，完成可验收的机器人任务，再把成果沉淀为代码、数据和演示作品。</p>
         ${button("了解更多", "#/about", false, false)}
       </div>
     </section>
@@ -503,49 +503,45 @@ export function homePage() {
  */
 function aboutPage() {
   const history = [
-    ["2011年", "眼科手术机器人项目组正式成立。根据眼科手术应用场景和用户需求，提出并开发树形机器人概念，设计适合在显微镜下使用的具有自适应 RCM 和多自由度的柔性机器人，并进行了运动学、动力学分析，末端定位精度可达微米级。"],
-    ["2015年", "完成样机的软件搭建和设计验证，证实眼科手术机器人具有足够的定位精度及力学性能。通过手从操作手术系统框架，在眼内空间的约束下实现视网膜表面的复杂运动，适合用于高难度复杂眼底手术。"],
-    ["2016年", "与中山大学中山眼科中心展开紧密合作，实施完成30多例动物试验，发表会议论文及顶级期刊论文10余篇。"],
-    ["2020年", "微眸医疗正式成立，与中山大学中山眼科中心签署战略协议，搭建5G网络模拟手术室。"],
-    ["2021年", "工业样机定型，指标达到预期设计状态；完成核心专利转化。"],
-    ["2022年", "全球首创由手术机器人协助的活体兔眼静脉插管注射试验；全球首创由手术机器人协助的灵长类动物视网膜下注射试验。建立欧洲研发中心，第二代眼科手术机器人取得广州市产业工程检验报告。"],
-    ["2023年", "第二代眼科手术机器人完成型检。全球首例5G远程微米级眼科手术。中山大学中山眼科中心作为首个临床中心启动。"],
-    ["2024年", "多个临床中心陆续启动，药物精准递送系统（科研版）正式启动销售（小动物版／大动物版本），手术耗材正式启动销售。"],
-    ["2025年", "全球首例远程手术机器人视网膜下注射手术。牵头制定全国眼科手术机器人首个团体标准。AI辅助下手术成果发表机器人顶级盛会 ICRA，并入选 Best Paper Finalist。"],
-    ["2026年", "微眸琢锋机器人进入国家药监审批“绿色通道”。微眸医疗圆满完成全国首个眼科手术机器人多中心随机对照临床试验。微眸琢锋机器人技术入选“眼科学十大原创进展”权威榜单。"]
+    ["共建背景", "青岛城市学院与宇树科技共建产业学院，导入宇树机器人平台、课程资源与工程师实践标准。"],
+    ["课程模块", "围绕机器人结构、运动控制、感知与交互建立基础课程，配套可运行代码和调试任务。"],
+    ["实验室实训", "成员在仿真与真实机器人上完成标定、遥操作、导航和安全停机等基础任务，按清单验收。"],
+    ["项目制学习", "以小组为单位拆解真实需求，形成任务书、代码仓库、测试记录和现场演示，过程可追溯。"],
+    ["竞赛协作", "围绕宇树机器人竞赛与校内创新项目组建梯队，进行周计划、评审和复盘，持续迭代作品。"],
+    ["成果沉淀", "优秀项目进入社团案例库，为课程助教、企业实践和后续成员提供可复用的工程模板。"]
   ];
 
   const culture = [
-    ["价值观", "求真 务实 奋进 开放"],
-    ["愿景使命", "引领眼科智慧医疗，守护全球健康视界"],
-    ["业务目标", "聚焦眼科智能自动化解决方案，全力打造从研发孵化、生产到医疗服务的全链条产业垂直生态体系"]
+    ["社团定位", "依托产业学院，把宇树机器人带进课堂、实验室和竞赛现场"],
+    ["活动机制", "每周例会、分组实训、代码评审、现场验收，过程和结果都有记录"],
+    ["成员成长", "基础控制 → 场景任务 → 项目协作，逐步形成可展示、可复用的工程能力"]
   ];
 
   return `
-    ${pageHero({ image: "aboutHero", title: "引领眼科智慧医疗<br>守护全球健康视界", className: "sub-hero about-hero" })}
+    ${pageHero({ image: "aboutHero", title: "引领具身智能具身智能<br>守护全球智能未来", className: "sub-hero about-hero" })}
     <section class="about-intro section-pad">
       <div class="content narrow reveal">
         ${sectionTitle("关于我们")}
         <div class="intro-copy">
-          <p>微眸医疗成立于2020年，核心团队来自于德国慕尼黑工业大学、瑞士苏黎世理工大学、中山大学及中山大学中山眼科中心，通过微米级高精度眼科手术机器人赛道的统筹布局，打造从研发、孵化、生产到医疗服务的全链条产业垂直生态体系，已获得60多项自主发明专利及实用新型专利，在国际知名期刊发表20余篇论文。微眸医疗通过与医院、高校及产业链上下游协同联动，探索“共创”模式，推动“研-医-教-产”四位一体的医疗产业创新融合发展。</p>
-          <p>公司以临床手术和药物科研需求为出发点，建立了显微手术控制系统（高精度显微眼科手术机器人）、药物精准递送系统、OIS眼科图像处理系统以及手术耗材(如微针、微型注射器、微型剪、微型镊等)四大产品管线，满足临床、科研和教学的需求。</p>
+          <p>具身智能社团是青岛城市学院计算与智能技术学院下属学生组织，面向在校生开放。社团依托宇树科技产业学院，把课堂知识转成可运行的机器人任务，重点覆盖运动控制、视觉感知、导航交互和系统调试。</p>
+          <p>社团采用项目制协作：每个小组都有任务书、代码仓库、测试记录和演示节点；成员可从基础实训进入竞赛项目，也可在企业导师指导下完成面向真实场景的原型验证。</p>
         </div>
         <div class="metric-row">
-          <strong>2020<sup>年</sup><small>成立时间</small></strong>
-          <strong>15<sup>年</sup><small>技术积累</small></strong>
-          <strong>125<sup>项</sup><small>知识产权</small></strong>
+            <strong>4<sup>类</sup><small>实践方向</small></strong>
+            <strong>3<sup>段</sup><small>成长路径</small></strong>
+            <strong>4<sup>套</sup><small>项目流程</small></strong>
         </div>
         <div class="video-cover">
-          <video playsinline preload="metadata" poster="${img("aboutVideo")}" ${ABOUT_VIDEO_SRC ? `src="${ABOUT_VIDEO_SRC}"` : ""} aria-label="微眸医疗企业介绍" data-about-video data-pot-player>
+          <video playsinline preload="metadata" poster="${img("aboutVideo")}" ${ABOUT_VIDEO_SRC ? `src="${ABOUT_VIDEO_SRC}"` : ""} aria-label="具身智能社团活动介绍" data-about-video data-pot-player>
             您的浏览器不支持视频播放。
           </video>
         </div>
       </div>
     </section>
-    <section class="history section-pad" style="--history-decor: url('${img("historyDecor")}')">
+    <section class="history practice-system section-pad">
       <div class="content">
-        ${sectionTitle("发展历程")}
-        <div class="timeline" data-timeline tabindex="0" role="region" aria-label="发展历程时间轴">
+        ${sectionTitle("实践体系")}
+        <div class="timeline" data-timeline tabindex="0" role="region" aria-label="实践体系导航">
           <button class="timeline-arrow prev" type="button" aria-label="查看上一阶段" data-timeline-prev style="--direction-sprite:url('${img("directionControls")}')"></button>
           <div class="timeline-stage">
             <div class="timeline-track" data-timeline-track>
@@ -558,9 +554,9 @@ function aboutPage() {
     </section>
     <section class="culture section-pad">
       <div class="content">
-        ${sectionTitle("企业文化")}
+        ${sectionTitle("社团机制")}
         <div class="culture-grid">
-          ${lazyImg("office", "微眸医疗办公环境", "reveal")}
+          ${lazyImg("office", "具身智能社团活动与实训空间", "reveal")}
           <div class="culture-list">
             ${culture.map(([title, copy], index) => `
               <article class="reveal">
@@ -573,23 +569,17 @@ function aboutPage() {
         </div>
       </div>
     </section>
-    <section class="honor section-pad">
+    <section class="honor section-pad" hidden>
       <div class="content">
-        ${sectionTitle("企业荣誉")}
+        ${sectionTitle("项目与竞赛成果")}
         <div class="honor-tabs" role="tablist" aria-label="企业荣誉分类">
-          <button class="active" type="button" role="tab" aria-selected="true" data-honor-tab="patent">发明专利</button>
-          <button type="button" role="tab" aria-selected="false" data-honor-tab="award">相关荣誉</button>
-          <button type="button" role="tab" aria-selected="false" data-honor-tab="academic">学术成果</button>
+          <button class="active" type="button" role="tab" aria-selected="true" data-honor-tab="patent">项目作品</button>
+          <button type="button" role="tab" aria-selected="false" data-honor-tab="award">竞赛成果</button>
+          <button type="button" role="tab" aria-selected="false" data-honor-tab="academic">研究分享</button>
         </div>
         <div class="honor-carousel" data-honor-carousel aria-live="polite">
           <button class="honor-arrow prev" type="button" aria-label="上一项荣誉" data-honor-prev style="--direction-sprite:url('${img("directionControls")}')"></button>
-          <div class="honor-grid" data-honor-grid>
-          ${[0, 1, 2].map((index) => `
-            <figure class="honor-card reveal" data-honor-card data-honor-index="${index}">
-              ${lazyImg("patentCertificate", `微眸医疗发明专利证书 ${index + 1}`)}
-            </figure>
-          `).join("")}
-          </div>
+          <div class="honor-grid" data-honor-grid></div>
           <button class="honor-arrow next" type="button" aria-label="下一项荣誉" data-honor-next style="--direction-sprite:url('${img("directionControls")}')"></button>
         </div>
       </div>
@@ -667,16 +657,16 @@ function newsPage() {
  */
 function supportPage() {
   const courses = [
-    { title: "模拟机培训", image: "simulatorTraining", focusImage: "simulatorTrainingFocus" },
-    { title: "动物实验培训", image: "animalLabTraining", focusImage: "animalLabTrainingFocus" },
-    { title: "人手培训", image: "handsOnTraining", focusImage: "handsOnTrainingFocus" }
+    { title: "宇树机器人基础实训", image: "simulatorTraining", focusImage: "simulatorTrainingFocus" },
+    { title: "仿真与现场调试", image: "animalLabTraining", focusImage: "animalLabTrainingFocus" },
+    { title: "项目协作与竞赛", image: "handsOnTraining", focusImage: "handsOnTrainingFocus" }
   ];
 
   return `
     ${pageHero({ image: "newsHero", title: "服务支持", className: "sub-hero support-hero" })}
     <section class="support-courses section-pad">
       <div class="content">
-        ${sectionTitle("培训课程")}
+        ${sectionTitle("训练课程")}
         <div class="support-grid">
           ${courses.map(({ title, image, focusImage }) => `
             <article class="support-card reveal" tabindex="0">
@@ -688,73 +678,6 @@ function supportPage() {
             </article>
           `).join("")}
         </div>
-      </div>
-    </section>
-    <section class="support-contact-wrap section-pad">
-      <div class="content">
-        ${sectionTitle("联系我们")}
-        <div class="support-form-card reveal">
-          <div class="support-contact-card">
-            <div>
-              <span>销售热线</span>
-              <strong>19120679708（销售专线）</strong>
-            </div>
-            <div>
-              <span>售后热线</span>
-              <strong>020-22886136</strong>
-            </div>
-          </div>
-          <form class="support-form-grid" data-lead-form novalidate>
-            <label class="required-field"><input required name="name" maxlength="100" autocomplete="name" aria-label="姓名" placeholder="姓名"></label>
-            <label class="required-field"><input required name="phone" type="tel" maxlength="40" inputmode="tel" autocomplete="tel" aria-label="电话" placeholder="电话"></label>
-            <label class="required-field"><input required name="company" maxlength="200" autocomplete="organization" aria-label="公司名称" placeholder="公司名称"></label>
-            <label class="required-field"><input required name="email" type="email" maxlength="200" autocomplete="email" aria-label="邮箱" placeholder="邮箱"></label>
-            <label class="full"><textarea name="message" maxlength="2000" aria-label="留言内容" placeholder="留言内容"></textarea></label>
-            <input class="visually-hidden" tabindex="-1" autocomplete="off" name="website" aria-hidden="true">
-            <button class="button support-submit" type="submit">提交</button>
-          </form>
-        </div>
-      </div>
-    </section>`;
-}
-
-/* 功能：生成联系我们页面。
- * 参数：无。
- * 返回值：联系我们页面 HTML 字符串。
- */
-function contactPage() {
-  return `
-    ${pageHero({ image: "aboutHero", title: "联系我们", className: "sub-hero contact-hero" })}
-    <section class="contact-main section-pad">
-      <div class="content">
-        <div class="contact-panel reveal">
-          <div class="contact-info">
-            <dl>
-              <dt>电话：</dt><dd>${CONTACT.sales}<br>${CONTACT.phone}</dd>
-              <dt>地址：</dt><dd>${CONTACT.addressA}</dd>
-              <dt aria-hidden="true"></dt><dd>${CONTACT.addressB}</dd>
-            </dl>
-          </div>
-          <div class="contact-map">
-            <div class="office-map" data-leaflet-map aria-label="微眸医疗办公地点地图" role="application">
-              <p class="office-map__status" data-leaflet-map-status>正在加载地图…</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="message section-pad">
-      <div class="content">
-        <p class="message-copy">如果您对我们的产品感兴趣，诚挚希望您填写此表单，我们会及时与您取得联系</p>
-        <form class="message-form reveal" data-lead-form novalidate>
-          <label class="required-field"><input required name="name" maxlength="100" autocomplete="name" aria-label="姓名" placeholder="姓名"></label>
-          <label class="required-field"><input required name="phone" type="tel" maxlength="40" inputmode="tel" autocomplete="tel" aria-label="电话" placeholder="电话"></label>
-          <label class="required-field"><input required name="company" maxlength="200" autocomplete="organization" aria-label="公司名称" placeholder="公司名称"></label>
-          <label class="required-field"><input required name="email" type="email" maxlength="200" autocomplete="email" aria-label="邮箱" placeholder="邮箱"></label>
-          <textarea name="message" maxlength="2000" aria-label="留言内容" placeholder="留言内容"></textarea>
-          <input class="visually-hidden" tabindex="-1" autocomplete="off" name="website" aria-hidden="true">
-          <button class="button" type="submit">提交 <span>→</span></button>
-        </form>
       </div>
     </section>`;
 }
@@ -776,15 +699,15 @@ function researchPage() {
   return `
     ${pageHero({
       image: "researchHero",
-      title: "高水平科研利器",
-      copy: "药物精准递送系统可实现微米级操作和微量匀速注射，消除术者手部震颤，<br class=\"research-hero-copy-break\">从而降低操作难度，提高科研试验成功率，节省科研经费和科研时间。",
-      action: `<button class="hero-video-button" type="button" data-video-title="药物精准递送系统" data-video-poster="${img("researchHero")}" data-video-src="${RESEARCH_VIDEO_SRC}">观看视频<span aria-hidden="true">›</span></button>`,
+      title: "机器人开发实训平台",
+      copy: "基于宇树机器人平台，把运动控制、感知算法和任务规划串成可验收的实训流程，<br class=\"research-hero-copy-break\">每个项目都留下代码、数据和现场演示记录。",
+      action: `<button class="hero-video-button" type="button" data-video-title="机器人开发实训平台" data-video-poster="${img("researchHero")}" data-video-src="${RESEARCH_VIDEO_SRC}">查看实训<span aria-hidden="true">›</span></button>`,
       className: "product-hero hero-center research-hero"
     })}
     <section class="numbered-features section-pad">
       <div class="content">
-        ${productFeature({ index: "01", title: "多自由度运动", copy: "自研独特的串并联构型，提供7自由度优于3微米的运动精度，实现灵巧运动，满足各类微创科研中对定位精度的极致要求。", image: "researchMotion", reverse: true, lineArt: "researchMachineOutline", splitText: true })}
-        ${productFeature({ index: "02", title: "精准操作", copy: "结合“自适应RCM技术”，控制器可精准控制进针角度，支持极微量注射、穿刺及剥膜等精细操作，确保在不同实验对象解剖结构中实现精准定点操作。", image: "researchMachine", lineArt: "researchMouseOutline", splitText: true })}
+        ${productFeature({ index: "01", title: "运动控制", copy: "从关节标定、坐标系设置到轨迹规划，成员在仿真与真实宇树机器人上完成可复现的控制任务。", image: "researchMotion", reverse: true, lineArt: "researchMachineOutline", splitText: true })}
+        ${productFeature({ index: "02", title: "感知与交互", copy: "将相机、传感器和语音指令接入任务流程，完成目标识别、避障、抓取和人机协同等项目练习。", image: "researchMachine", lineArt: "researchMouseOutline", splitText: true })}
       </div>
     </section>
     <section class="safety-strip" style="--bg:url('${img("researchScene")}')">
@@ -793,21 +716,21 @@ function researchPage() {
           <span>03</span>
           <div>
             <h2 data-split-text>安全可靠</h2>
-            <p data-split-text>将高难度显微操作转化为标准化、可重复的自动化流程，大幅缩短操作人员培训周期。配合直观的软件界面有效降低操作技术门槛，优化实验流程，提升科研实验的可靠性与效率。</p>
+            <p data-split-text>把复杂机器人任务拆成标准化步骤：环境检查、代码运行、日志记录、故障复盘和现场验收。新成员按清单练习，老成员通过代码评审和示范任务带教。</p>
           </div>
         </div>
         <div class="safety-numbers">
-          <b><span class="stat-number"><span class="stat-value">500</span><sup>+</sup></span><small>临床案例</small></b>
-          <b><span class="stat-number"><span class="stat-value">100</span><sup>%</sup></span><small>成功率</small></b>
-          <b><span class="stat-number"><span class="stat-value">9</span><sup>个</sup></span><small>合作中心</small></b>
+          <b><span class="stat-number"><span class="stat-value">4</span><sup>类</sup></span><small>实践方向</small></b>
+          <b><span class="stat-number"><span class="stat-value">3</span><sup>步</sup></span><small>项目流程</small></b>
+          <b><span class="stat-number"><span class="stat-value">1</span><sup>个</sup></span><small>共享平台</small></b>
         </div>
       </div>
     </section>
     <section class="applications section-pad">
       <div class="content">
-        ${sectionTitle("适用范围", "", "left")}
+        ${sectionTitle("实践方向", "", "left")}
         <div class="animal-grid">
-          ${animals.map(([name, animalClass, image]) => `<article class="animal-card is-${animalClass} reveal" tabindex="0"><div class="animal-art">${lazyImg(image, `${name}实验动物`)}</div><span>${name}</span></article>`).join("")}
+          ${["运动控制", "视觉感知", "导航交互", "强化学习", "机械结构", "竞赛项目"].map((name, index) => `<article class="animal-card is-${animals[index][1]} reveal" tabindex="0"><div class="animal-art">${lazyImg(animals[index][2], `${name}实践`)}</div><span>${name}</span></article>`).join("")}
         </div>
       </div>
     </section>
@@ -823,13 +746,13 @@ function oisPage() {
   return `
     ${pageHero({
       image: "oisHero",
-      title: "<span class='ois-title-accent'>OIS眼科</span><br>图像处理软件",
-      copy: "OIS眼科图像处理软件集导入图像、图像处理与患者档案管理于一体，致力于为医生提供高效便捷的一站式解决方案，在确保医疗数据安全保密的同时，大幅提升临床诊断与随访效率。",
+      title: "<span class='ois-title-accent'>项目资料</span><br>与代码协同平台",
+      copy: "把代码、传感器数据、实验日志和项目文档放在同一工作台，方便社团成员复现任务、定位问题并交接项目。",
       className: "product-hero ois-hero"
     })}
     <section class="ois-workflow section-pad" data-ois-workflow="import">
       <div class="content">
-        ${sectionTitle("<em>高效便携</em>进行眼科图像处理")}
+        ${sectionTitle("<em>高效协作</em>管理机器人项目")}
         <div class="ois-layout">
           <div class="ois-tabs" role="tablist" aria-label="OIS 功能切换">
             ${oisTabs.map(([key, label, subtitle, , , icon], index) => `
@@ -860,15 +783,15 @@ function oisPage() {
     </section>
     <section class="ois-security section-pad">
       <div class="content">
-        ${sectionTitle("<em>数据保密</em>，保护病人信息")}
+        ${sectionTitle("<em>过程可追溯</em>，让项目交接更可靠")}
         <img class="ois-security-screen reveal" src="${img("oisProcess")}" alt="OIS 图像处理界面">
         <div class="security-grid motion-reveal">
-          <span><img src="${img("oisCompatibilityIcon")}" alt=""><b>全面兼容</b><small>支持OCT、眼底彩照等多源设备图像格式</small></span>
-          <span><img src="${img("oisSecurityIcon")}" alt=""><b>安全可信</b><small>采用端到端加密与严格权限管控，确保患者数据100%私有，符合最高医疗隐私标准</small></span>
-          <span><img src="${img("oisAnnotationIcon")}" alt=""><b>多样标注</b><small>支持在图像上进行多维度自由标注，极大提升诊断与交流效率</small></span>
-          <span><img src="${img("oisArchiveIcon")}" alt=""><b>材料归档</b><small>患者所有影像、报告与历史数据自动关联归档，构建完整电子病历</small></span>
-          <span><img src="${img("oisWorkflowIcon")}" alt=""><b>流程一体</b><small>图像上传、分析、报告生成全流程无缝衔接，彻底告别多系统切换，极大提升工作效率</small></span>
-          <span><img src="${img("oisAnalysisIcon")}" alt=""><b>智能分析</b><small>基于前沿AI算法，自动识别病灶并量化关键指标，提供精准、可重复的辅助诊断依据</small></span>
+          <span><img src="${img("oisCompatibilityIcon")}" alt=""><b>统一接入</b><small>代码、模型、传感器与演示视频按项目归集，减少资料散落</small></span>
+          <span><img src="${img("oisSecurityIcon")}" alt=""><b>权限清晰</b><small>按小组和项目设置访问范围，保留修改记录，便于协作复盘</small></span>
+          <span><img src="${img("oisAnnotationIcon")}" alt=""><b>任务标注</b><small>为数据片段和失败日志添加标签，快速定位待解决问题</small></span>
+          <span><img src="${img("oisArchiveIcon")}" alt=""><b>成果归档</b><small>自动关联任务书、代码版本、测试结果和现场照片</small></span>
+          <span><img src="${img("oisWorkflowIcon")}" alt=""><b>流程一体</b><small>从立项、开发、测试到演示统一记录，降低交接成本</small></span>
+          <span><img src="${img("oisAnalysisIcon")}" alt=""><b>复盘分析</b><small>基于日志和指标复盘动作成功率，为下一轮迭代提供依据</small></span>
         </div>
       </div>
     </section>
@@ -882,18 +805,18 @@ function oisPage() {
  */
 function v3Page() {
   const features = [
-    ["v3PrecisionIcon", "微米级高精度", "RCM控制及末端定位", [
-      "空间定点5个自由度RCM运动",
-      "精准完成眼部穿刺、注射、剥膜、夹取等动作",
-      "可自由规划末端运动轨迹，精度达微米级"
+    ["v3PrecisionIcon", "动作控制", "关节控制及末端定位", [
+      "完成关节标定、坐标系设置和末端定位",
+      "支持行走、转向、抓取和放置等基础动作",
+      "可规划末端运动轨迹并记录误差"
     ]],
-    ["v3ModularIcon", "模块化设计", "高度适配眼科手术场景", [
-      "模块化设计，末端套管灵活适配多种手术工具",
-      "适用多种眼科手术场景，满足临床与科研需求"
+    ["v3ModularIcon", "模块化设计", "适配课程与项目任务", [
+      "按任务替换末端工具、传感器和控制模块",
+      "同一套代码可在仿真与真实机器人上迭代"
     ]],
-    ["v3ArmIcon", "核心技术", "核心部件均自主研发", [
-      "拥有七十多项产品核心专利",
-      "可通过5G网络实现远程操控，推动优质医疗资源下沉"
+    ["v3ArmIcon", "工程规范", "从安全检查到现场验收", [
+      "建立上电、急停、限位和日志检查清单",
+      "支持局域网遥操作与现场协同调试"
     ]]
   ];
 
@@ -901,13 +824,13 @@ function v3Page() {
     ${pageHero({
       image: "v3Hero",
       eyebrow: "WMOX-22001",
-      title: "高精度显微眼科手术机器人",
-      copy: "微眸琢锋·眼科手术机器人设备末端精度达3-5微米，远心运动的精度在100微米以内，运动闭环控制周期小于30微秒，同时采用轻量化可移动设计，适配现有手术室环境，无需额外场地改造，落地门槛更低。其集成了机器人辅助手术、术前规划及术中定位导航等功能，让医生在眼球受限空间里看得更清楚，手术操作更稳，实现药物的微量化注射和可视化操作，提升注射药物的成功率，让眼科手术的创伤更小、治疗更为精准。",
+      title: "宇树机器人项目实训",
+      copy: "围绕宇树机器人开展从设备检查、SDK调用到任务演示的完整训练。成员需要提交代码、参数、日志和复盘记录，在指导教师或高年级成员评审通过后进入下一阶段。",
       className: "product-hero v3-hero"
     })}
     <section class="v3-features section-pad">
       <div class="content">
-        ${sectionTitle("开启<em>微米级</em>精度操作", "助力眼底高精度手术，填补我国眼科眼底手术机器人行业空白")}
+        ${sectionTitle("从<em>基础动作</em>到完整任务", "按统一清单完成标定、控制、感知、协作和演示，训练结果可复现、可交接")}
         <div class="icon-features motion-reveal">
           ${features.map(([icon, title, subtitle, details]) => `
             <article>
@@ -919,25 +842,25 @@ function v3Page() {
           `).join("")}
         </div>
         <div class="video-large reveal">
-          <video playsinline preload="metadata" poster="${img("v3Feature")}" ${V3_VIDEO_SRC ? `src="${V3_VIDEO_SRC}"` : ""} aria-label="眼科手术机器人案例视频" data-v3-video data-pot-player>
+          <video playsinline preload="metadata" poster="${img("v3Feature")}" ${V3_VIDEO_SRC ? `src="${V3_VIDEO_SRC}"` : ""} aria-label="具身智能机器人案例视频" data-v3-video data-pot-player>
             您的浏览器不支持视频播放。
           </video>
         </div>
       </div>
     </section>
-    <section class="clinical-strip" style="--bg:url('${img("surgeryScene")}')">
+    <section class="application-strip" style="--bg:url('${img("operationScene")}')">
       <div class="content reveal">
-        <div class="clinical-copy clinical-timeline">
-          <p>2023年6月，完成全球首例跨海5G远程微米级动物眼科手术。</p>
-          <p>2025年4月，完成了全国首例“显微眼科手术机器人系统辅助视网膜下注射平衡盐溶液治疗难治性糖尿病性黄斑水肿”。</p>
-          <p>2025年11月，完成了全球首例远程机器人视网膜下注射手术。</p>
-          <p>2026年6月，完成全国首个眼科手术机器人多中心随机对照注册临床试验。</p>
-          <p>2026年7月，微眸琢锋机器人进入国家药监审批“绿色通道”。</p>
+        <div class="application-copy application-timeline">
+          <p>阶段一：完成宇树机器人安全检查、上电、急停与基础遥操作。</p>
+          <p>阶段二：完成关节标定、轨迹规划和视觉目标识别，提交可复现代码。</p>
+          <p>阶段三：以小组为单位完成导航、抓取或人机协同任务，进行现场演示。</p>
+          <p>阶段四：参加校内外竞赛或产业学院项目评审，依据反馈迭代版本。</p>
+          <p>阶段五：将通过验收的代码、日志和文档沉淀为社团案例，供后续成员复用。</p>
         </div>
         <div class="metric-row light">
           <strong><span>3-5<sup>μm</sup></span><small>末端精度</small></strong>
-          <strong><span>100<sup>+</sup></span><small>临床案例</small></strong>
-          <strong><span>10<sup>+</sup></span><small>临床中心</small></strong>
+          <strong><span>100<sup>+</sup></span><small>应用案例</small></strong>
+          <strong><span>10<sup>+</sup></span><small>应用中心</small></strong>
         </div>
       </div>
     </section>
@@ -953,7 +876,7 @@ function v4Page() {
   return pageHero({
     image: "v4Hero",
     eyebrow: "WMOX-24001",
-    title: "显微手术控制系统",
+    title: "高精度动作控制系统",
     copy: "敬请期待…",
     className: "v4-full"
   });
@@ -966,126 +889,126 @@ function v4Page() {
 function consumablesPage() {
   const items = [
     {
-      title: "INCYTO（韩国进口）",
+      title: "宇树机器人基础套件",
       category: "needle",
       mediaClass: "is-incyto",
       media: [["microNeedle", "product-main"]],
-      specs: ["微针规格：38G-42G", "微针长度：S、L(1-6mm)", "管体规格：25G-27G", "管体长度：28mm"]
+      specs: ["适合：入门控制练习", "内容：线缆、转接件与工具", "方式：按任务清单领用", "记录：归还前完成检查"]
     },
     {
-      title: "移液针",
+      title: "末端执行器组件",
       category: "needle",
       mediaClass: "is-metal",
       media: [["metalNeedle", "metal-needle"], ["metalPackage", "metal-package"]],
-      specs: ["微针规格：33G-50G", "微针长度：S、M、L(1-6mm)", "管体规格：25G-28G", "管体长度：15-60mm"]
+      specs: ["适合：抓取与搬运任务", "内容：夹具与连接件", "方式：按项目配置", "记录：保留装配参数"]
     },
     {
-      title: "移液针",
+      title: "传感器与连接组件",
       category: "needle",
       mediaClass: "is-plastic",
       media: [["pipettePackage", "plastic-package"], ["pipetteNeedle", "pipette-needle"]],
-      specs: ["微针规格：33G-50G", "微针长度：S、M、L(1-6mm)", "管体规格：25G-28G", "管体长度：15-60mm"]
+      specs: ["适合：视觉与姿态采集", "内容：相机、IMU与连接件", "方式：按实验方案接入", "记录：保存标定结果"]
     },
     {
-      title: "一次性使用无菌视网膜下注吸器",
+      title: "安全防护与急停组件",
       category: "needle",
       mediaClass: "is-injector",
       media: [["injector", "injector-main"], ["pipetteNeedle", "injector-needle"]],
-      specs: ["微针规格：38G-42G", "微针长度：S、L(1-6mm)", "管体规格：25G-27G", "管体长度：28mm"]
+      specs: ["适合：上电与现场调试", "内容：急停、限位与警示件", "方式：实训前逐项检查", "记录：异常情况必须上报"]
     },
     {
-      title: "显微镊",
+      title: "抓取夹具",
       category: "instrument",
       mediaClass: "is-instrument",
       media: [["instrumentForceps", "instrument-forceps"], ["instrumentPackaging", "instrument-packaging"]],
-      specs: ["用于夹持眼组织、眼内异物，剥除内界膜"]
+      specs: ["用于抓取、搬运和放置不同尺寸物体"]
     },
     {
-      title: "显微剪",
+      title: "装配工具",
       category: "instrument",
       mediaClass: "is-instrument",
       media: [["instrumentForceps", "instrument-forceps"], ["instrumentPackaging", "instrument-packaging"]],
-      specs: ["用于剪切组织"]
+      specs: ["用于机器人装配、调平和日常维护"]
     },
     {
-      title: "一次性使用无菌显微镊",
+      title: "定位标记套件",
       category: "instrument",
       mediaClass: "is-instrument",
       media: [["instrumentForceps", "instrument-forceps"], ["instrumentPackaging", "instrument-packaging"]],
-      specs: ["用于夹持眼组织、眼内异物，剥除内界膜"]
+      specs: ["用于相机标定、场地定位和重复实验"]
     },
     {
-      title: "一次性使用无菌显微剪",
+      title: "维护与收纳套件",
       category: "instrument",
       mediaClass: "is-instrument",
       media: [["instrumentForceps", "instrument-forceps"], ["instrumentPackaging", "instrument-packaging"]],
-      specs: ["用于剪切组织"]
+      specs: ["用于实训后检查、清洁和分类收纳"]
     },
     {
-      title: "手持式微量注射套装",
+      title: "遥操作控制套装",
       category: "kit",
       mediaClass: "is-handheld-kit",
       media: [["handheldMicroinjectionKit", "handheld-kit"]],
-      description: "主要应用于视网膜下注射",
-      specs: ["适用实验对象：小鼠、豚鼠、兔子"]
+      description: "用于远程控制、示教和动作记录",
+      specs: ["适用：基础动作与导航任务"]
     },
     {
-      title: "眼科附件包",
-      titleDetail: "（夹具、微量注射器、塞子）",
+      title: "仿真实训附件包",
+      titleDetail: "（场地标记、夹具、连接件）",
       category: "kit",
       mediaClass: "is-kit-bag",
-      media: [["surgicalConsumablesKit", "kit-bag"]],
-      description: "主要应用于视网膜手术、玻璃体手术等眼底手术",
-      specs: ["配合显微眼科手术控制系统设备使用，应用于视网膜下注吸"]
+      media: [["roboticConsumablesKit", "kit-bag"]],
+      description: "用于仿真环境搭建和任务复现",
+      specs: ["配合宇树机器人平台完成训练任务"]
     },
     {
-      title: "眼科附件包",
-      titleDetail: "（夹具、无菌罩、注射器、微针）",
+      title: "现场演示附件包",
+      titleDetail: "（展示底座、夹具、传感器）",
       category: "kit",
       mediaClass: "is-kit-bag",
-      media: [["surgicalConsumablesKit", "kit-bag"]],
-      description: "主要应用于视网膜手术、玻璃体手术等眼底手术",
-      specs: ["配合显微眼科手术控制系统设备使用，应用于视网膜下注吸"]
+      media: [["roboticConsumablesKit", "kit-bag"]],
+      description: "用于竞赛、开放日和项目答辩演示",
+      specs: ["配合宇树机器人完成现场展示"]
     },
     {
-      title: "小鼠固定器",
+      title: "移动底座",
       category: "experiment",
       mediaClass: "is-experiment is-mouse-fixture",
       media: [["mouseFixture", "experiment-product"]],
-      description: "主要应用于角膜层穿刺，视神经注射等",
-      specs: ["适用实验对象：小鼠"]
+      description: "用于机器人移动、定位和场地复现",
+      specs: ["适用：实验室与竞赛场地"]
     },
     {
-      title: "小鼠板",
+      title: "任务标记板",
       category: "experiment",
       mediaClass: "is-experiment is-mouse-platform",
       media: [["mousePlatform", "experiment-product"]],
-      description: "主要应用于视网膜下注射",
-      specs: ["适用实验对象：小鼠"]
+      description: "用于路线规划、目标定位和任务分区",
+      specs: ["适用：导航与交互实训"]
     },
     {
-      title: "豚鼠板",
+      title: "交互场景板",
       category: "experiment",
       mediaClass: "is-experiment is-guinea-pig-platform",
       media: [["guineaPigPlatform", "experiment-product"]],
-      description: "主要应用于视网膜下注射",
-      specs: ["适用实验对象：豚鼠"]
+      description: "用于搭建人机协同与多机器人任务场景",
+      specs: ["适用：团队项目演示"]
     },
     {
-      title: "移液针填充塞",
+      title: "线缆与转接件",
       category: "other",
       mediaClass: "is-other is-filling-plug",
       media: [["pipetteFillingPlug", "other-product"]],
-      description: "主要应用于微量注射",
-      specs: ["移液针配件，用于降低注射损耗量"]
+      description: "用于设备连接、线缆整理和快速更换",
+      specs: ["按设备型号选择对应规格"]
     },
     {
-      title: "转换头",
+      title: "工具转换头",
       category: "other",
       mediaClass: "is-other is-irrigator",
       media: [["irrigator", "other-product"]],
-      description: "主要应用于视网膜手术、玻璃体手术等眼底手术",
-      specs: ["配合爱尔康玻切机灌注管路和注射器使用"]
+      description: "用于不同末端工具之间的快速转换",
+      specs: ["配合宇树机器人末端接口使用"]
     }
   ];
 
@@ -1095,19 +1018,19 @@ function consumablesPage() {
         <img class="hero-replacement" src="${img("consumablesHeroReplacement")}" alt="">
       </div>
       <div class="hero-copy">
-        <h1>手术耗材</h1>
-        <p>覆盖微针、注吸器、手术器械及实验配件等产品，以精密工艺满足显微眼科手术与生命科学研究中的精细操作需求。</p>
+        <h1>机器人组件</h1>
+        <p>覆盖机器人本体、末端工具、传感器和实训配件，服务于宇树机器人课程、项目开发与竞赛演示。</p>
       </div>
     </section>
     <section class="consumable-nav section-pad">
       <div class="content">
-        <h2>以精密工艺守护手术<em>安全与信赖</em></h2>
-        <div class="chip-row" aria-label="耗材分类">
-          <button class="active" type="button" data-consumable-filter="needle" aria-pressed="true">微针系列</button>
-          <button type="button" data-consumable-filter="instrument" aria-pressed="false">手术器械</button>
-          <button type="button" data-consumable-filter="kit" aria-pressed="false">附件包</button>
-          <button type="button" data-consumable-filter="experiment" aria-pressed="false">实验配件</button>
-          <button type="button" data-consumable-filter="other" aria-pressed="false">其他配件</button>
+        <h2>以精密工艺守护操作<em>安全与信赖</em></h2>
+        <div class="chip-row" aria-label="组件分类">
+          <button class="active" type="button" data-consumable-filter="needle" aria-pressed="true">基础套件</button>
+          <button type="button" data-consumable-filter="instrument" aria-pressed="false">末端工具</button>
+          <button type="button" data-consumable-filter="kit" aria-pressed="false">实训附件</button>
+          <button type="button" data-consumable-filter="experiment" aria-pressed="false">场景配件</button>
+          <button type="button" data-consumable-filter="other" aria-pressed="false">连接维护</button>
         </div>
       </div>
     </section>
@@ -1122,7 +1045,7 @@ function consumablesPage() {
             </div>
             <div class="consumable-copy">
               <h3>${item.title}${item.titleDetail ? `<span class="consumable-title-detail">${item.titleDetail}</span>` : ""}</h3>
-              ${item.description === false ? "" : `<p class="consumable-description">${item.description || "主要应用于视网膜手术、玻璃体手术等眼底手术"}</p>`}
+              ${item.description === false ? "" : `<p class="consumable-description">${item.description || "用于宇树机器人课程实训、项目开发与竞赛演示"}</p>`}
               ${item.specs.length ? `<ul>${item.specs.map((spec) => `<li>${spec}</li>`).join("")}</ul>` : ""}
             </div>
           </div>
@@ -1139,7 +1062,6 @@ export const pages = {
   about: aboutPage,
   news: newsPage,
   support: supportPage,
-  contact: contactPage,
   research: researchPage,
   ois: oisPage,
   v3: v3Page,
@@ -1154,21 +1076,21 @@ export const pages = {
 export function bindInteractions() {
   const cleanups = [];
 
-  // The V3 clinical scene is a 1920 × 800 artboard with text positioned on
+  // The V3 application scene is a 1920 × 800 artboard with text positioned on
   // that coordinate system. CSS transforms require a unitless scale value,
   // so calculate it from the rendered strip width instead of passing a `vw`
   // length to `scale()`, which browsers discard as invalid.
-  const clinicalStrip = document.querySelector(".clinical-strip");
-  if (clinicalStrip) {
-    const updateClinicalSceneScale = () => {
-      clinicalStrip.style.setProperty(
-        "--clinical-scale",
-        String(clinicalStrip.getBoundingClientRect().width / 1920)
+  const applicationStrip = document.querySelector(".application-strip");
+  if (applicationStrip) {
+    const updateApplicationSceneScale = () => {
+      applicationStrip.style.setProperty(
+        "--application-scale",
+        String(applicationStrip.getBoundingClientRect().width / 1920)
       );
     };
-    updateClinicalSceneScale();
-    addEventListener("resize", updateClinicalSceneScale);
-    cleanups.push(() => removeEventListener("resize", updateClinicalSceneScale));
+    updateApplicationSceneScale();
+    addEventListener("resize", updateApplicationSceneScale);
+    cleanups.push(() => removeEventListener("resize", updateApplicationSceneScale));
   }
 
   const toggle = document.querySelector(".menu-toggle");
@@ -1210,7 +1132,7 @@ export function bindInteractions() {
         <div class="media-dialog-panel">
           <button class="media-dialog-close" type="button" data-dialog-close aria-label="关闭">×</button>
           <div class="media-dialog-poster"></div>
-          <div class="media-dialog-copy"><span>OCULOTRONICS</span><h2 id="media-dialog-title"></h2><p>视频内容正在准备中，您可以先浏览页面中的产品资料。</p></div>
+          <div class="media-dialog-copy"><span>QINGDAO CITY UNIVERSITY</span><h2 id="media-dialog-title"></h2><p>视频内容正在准备中，您可以先浏览页面中的产品资料。</p></div>
         </div>
       </div>`;
     document.body.append(feedback);
@@ -1431,63 +1353,6 @@ export function bindInteractions() {
       if (event.key !== "Enter" && event.key !== " ") return;
       event.preventDefault();
       openMediaDialog();
-    });
-  });
-
-  document.querySelectorAll("[data-lead-form]").forEach((form) => {
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const required = [...form.querySelectorAll("[required]")];
-      const missing = required.find((field) => !field.value.trim());
-      const email = form.querySelector('input[type="email"]');
-      const phone = form.querySelector('input[type="tel"]');
-      form.querySelectorAll(".field-error").forEach((field) => field.classList.remove("field-error"));
-      if (missing) {
-        missing.classList.add("field-error");
-        missing.focus();
-        showToast(localeText(`请填写${missing.getAttribute("aria-label")}`, `Please enter ${missing.getAttribute("aria-label")}`), "error");
-        return;
-      }
-      if (phone && !/^[0-9+()\s-]{6,20}$/.test(phone.value.trim())) {
-        phone.classList.add("field-error");
-        phone.focus();
-        showToast(localeText("请输入有效的联系电话", "Please enter a valid phone number"), "error");
-        return;
-      }
-      if (email?.value && !email.validity.valid) {
-        email.classList.add("field-error");
-        email.focus();
-        showToast(localeText("请输入有效的邮箱地址", "Please enter a valid email address"), "error");
-        return;
-      }
-      const submitButton = form.querySelector('[type="submit"]');
-      submitButton.disabled = true;
-      form.setAttribute("aria-busy", "true");
-      try {
-        const requestId = typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
-          ? crypto.randomUUID()
-          : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
-        const response = await fetch("/api/leads", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Idempotency-Key": requestId },
-          body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
-        });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok) {
-          const error = new Error(result.message || "提交失败");
-          error.rateLimited = response.status === 429;
-          throw error;
-        }
-        form.reset();
-        showToast(localeText("提交成功，我们会尽快与您联系", "Submitted successfully. We will contact you shortly."));
-      } catch (error) {
-        showToast(error.rateLimited
-          ? localeText("提交过于频繁，请稍后再试", "Too many submissions. Please try again later.")
-          : localeText("提交失败，请稍后重试", "Submission failed. Please try again later."), "error");
-      } finally {
-        submitButton.disabled = false;
-        form.removeAttribute("aria-busy");
-      }
     });
   });
 
@@ -2039,6 +1904,7 @@ export function bindInteractions() {
   const honorTabs = [...document.querySelectorAll("[data-honor-tab]")];
   const honorGrid = document.querySelector("[data-honor-grid]");
   if (honorTabs.length && honorGrid) {
+    const honorSection = honorGrid.closest(".honor");
     let honorOffset = 0;
     let activeHonorCategory = honorTabs.find((tab) => tab.classList.contains("active"))?.dataset.honorTab || "patent";
     let honorCards = [...honorGrid.querySelectorAll("[data-honor-card]")];
@@ -2067,11 +1933,10 @@ export function bindInteractions() {
       });
     };
     const renderHonors = (honors) => {
-      if (!honors.length) return;
       latestHonors = honors;
       preloadHonorImages(honors);
       const selected = honors.filter((honor) => honor.category === activeHonorCategory);
-      if (!selected.length) return;
+      honorSection.hidden = honors.length === 0;
       honorGrid.dataset.honorCategory = activeHonorCategory;
       honorGrid.replaceChildren(...selected.map((honor, index) => {
         const card = document.createElement("figure");
@@ -2094,11 +1959,11 @@ export function bindInteractions() {
     const loadHonors = async () => {
       try {
         const response = await fetch("/api/honors", { cache: "no-store" });
-        if (!response.ok) return;
+        if (!response.ok) throw new Error("Honor content request failed");
         const payload = await response.json();
-        if (Array.isArray(payload.honors)) renderHonors(payload.honors);
+        renderHonors(Array.isArray(payload.honors) ? payload.honors : []);
       } catch {
-        // Keep the bundled certificate cards visible when the data source is unavailable.
+        renderHonors([]);
       }
     };
     honorTabs.forEach((buttonItem) => buttonItem.addEventListener("click", () => {

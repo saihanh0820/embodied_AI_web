@@ -25,7 +25,7 @@ async function apiIsRunning() {
 
 function loadProjectEnv() {
   const values = {};
-  for (const fileName of ["weimou_web.env", ".env"]) {
+  for (const fileName of [".env"]) {
     const filePath = resolve(root, fileName);
     if (!existsSync(filePath)) continue;
     for (const line of readFileSync(filePath, "utf8").split(/\r?\n/)) {
@@ -65,7 +65,7 @@ function stop(message, exitCode = 0) {
 if (await apiIsRunning()) {
   console.log(`API is already running at ${apiUrl}.`);
 } else {
-  apiProcess = start(process.execPath, [resolve(root, "weimou_web_server.js")], "API");
+  apiProcess = start(process.execPath, [resolve(root, "server.js")], "API");
   apiProcess.on("exit", (code) => {
     if (!stopping) stop(`API exited unexpectedly (code ${code ?? "unknown"}).`, 1);
   });

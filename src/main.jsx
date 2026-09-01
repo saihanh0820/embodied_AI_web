@@ -4,7 +4,6 @@ import { createRoot } from "react-dom/client";
 import { bindInteractions, footer, header, homePage, pages, route } from "../app.js";
 import { applyLocale, readLocale } from "../i18n.js";
 import { enhancePotPlayers } from "./pot-player.js";
-import { initializeLeafletMap } from "./leaflet-map.js";
 import "../styles.css";
 
 const PRODUCT_ROUTES = ["research", "ois", "v3", "v4", "consumables"];
@@ -31,6 +30,24 @@ function App() {
   const [locale, setLocale] = useState(readLocale);
   const previousPage = useRef(page);
   const isInitialPageLoad = useRef(true);
+  const footerScrollPending = useRef(false);
+
+  useEffect(() => {
+    const handleFooterNavigation = (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const link = target?.closest("[data-footer-link]");
+      if (!link) return;
+      event.preventDefault();
+      if (route() === "home") {
+        document.getElementById("site-footer")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+      footerScrollPending.current = true;
+      window.location.hash = "#/home";
+    };
+    document.addEventListener("click", handleFooterNavigation);
+    return () => document.removeEventListener("click", handleFooterNavigation);
+  }, []);
 
   useEffect(() => {
     const restoreOnInitialLoad = isInitialPageLoad.current;
@@ -98,6 +115,10 @@ function App() {
       }
     }
     previousPage.current = page;
+    if (footerScrollPending.current) {
+      footerScrollPending.current = false;
+      requestAnimationFrame(() => document.getElementById("site-footer")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
   }, [page, locale]);
 
   // Let the new route paint first. Interaction binding performs a broad DOM
@@ -105,9 +126,7 @@ function App() {
   useEffect(() => {
     const interactionCleanup = bindInteractions();
     const playerCleanups = enhancePotPlayers();
-    const mapCleanup = page === "contact" ? initializeLeafletMap() : undefined;
     return () => {
-      mapCleanup?.();
       playerCleanups.stop?.();
       playerCleanups.forEach((cleanup) => cleanup());
       interactionCleanup?.();

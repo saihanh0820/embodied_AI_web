@@ -3,8 +3,8 @@ from docx.shared import Pt, RGBColor
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
-SOURCE = r"C:\Users\weimo\Downloads\微眸医疗官网——代码架构与设计 (3)-按原格式补充版.docx"
-OUTPUT = r"C:\Users\weimo\Downloads\微眸医疗官网——代码架构与设计 (3)-按原格式代码块版.docx"
+SOURCE = r"C:\Users\weimo\Downloads\具身智能社团官网——代码架构与设计 (3)-按原格式补充版.docx"
+OUTPUT = r"C:\Users\weimo\Downloads\具身智能社团官网——代码架构与设计 (3)-按原格式代码块版.docx"
 
 doc = Document(SOURCE)
 

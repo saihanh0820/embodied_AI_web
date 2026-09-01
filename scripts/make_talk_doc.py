@@ -24,7 +24,7 @@ p=d.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; r=p.add_run('weimou_
 p=d.add_paragraph(); p.alignment=WD_ALIGN_PARAGRAPH.CENTER; p.add_run('可直接照读｜配合《代码架构与设计》表格使用').italic=True
 d.add_paragraph('使用方式：先展示架构表，再按本文顺序打开代码文件。')
 d.add_heading('一、开场',1)
-d.add_paragraph('大家好，今天介绍微眸医疗官网的整体代码架构，以及页面、服务端、缓存和外部平台之间是如何集成的。这个项目采用 React 应用壳层、页面交互层、专项能力模块、Node.js 服务端和本地数据缓存的分层架构。')
+d.add_paragraph('大家好，今天介绍具身智能社团官网的整体代码架构，以及页面、服务端、缓存和外部平台之间是如何集成的。这个项目采用 React 应用壳层、页面交互层、专项能力模块、Node.js 服务端和本地数据缓存的分层架构。')
 d.add_paragraph('整体链路是：用户访问页面，进入 React 应用壳层；壳层识别 Hash 路由；页面层渲染内容并请求同源 API；Node.js 读取本地缓存或同步外部平台；最后把标准化数据返回给页面。')
 d.add_heading('二、架构表怎么讲',1)
 tbl(['层级','文件','职责'],[('应用壳层','src/main.jsx','React 入口、Hash 路由、页面生命周期'),('页面与交互层','app.js','页面模板、新闻、轮播、表单和 DOM 事件'),('国际化与样式','i18n.js / styles.css','中英文文案和视觉样式'),('专项能力','src/pot-player.js / src/leaflet-map.js','视频、字幕、地图等复杂功能'),('服务端','server.js','同源 API、校验、限流、外部平台调用'),('数据缓存','data/news / data/honors','新闻和荣誉数据的本地回退')])

@@ -9,7 +9,7 @@ const apiPort = 9800 + Math.floor(Math.random() * 400);
 const profile = path.join(process.cwd(), "output", `smoke-profile-${Date.now()}`);
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 process.env.API_PORT = String(apiPort);
-const apiServer = spawn(process.execPath, ["weimou_web_server.js"], {
+const apiServer = spawn(process.execPath, ["server.js"], {
   env: { ...process.env, API_PORT: String(apiPort) },
   stdio: "ignore"
 });
@@ -574,11 +574,11 @@ if (consumables.active !== "instrument"
   || JSON.stringify(consumables.categories) !== JSON.stringify(["instrument"])
   || JSON.stringify(consumables.reverse) !== JSON.stringify([false, true, false, true])
   || JSON.stringify(consumables.tinted) !== JSON.stringify([true, false, true, false])
-  || JSON.stringify(consumables.buttons.map((button) => button.label)) !== JSON.stringify(["微针系列", "手术器械", "附件包", "实验配件", "其他配件"])
+  || JSON.stringify(consumables.buttons.map((button) => button.label)) !== JSON.stringify(["微针系列", "操作器械", "附件包", "实验配件", "其他配件"])
   || consumables.buttons.some((button) => button.width !== 126 || button.height !== 44 || button.fontSize !== "20px")
-  || consumables.buttons.find((button) => button.label === "手术器械")?.color !== "rgb(255, 255, 255)"
-  || !consumables.buttons.find((button) => button.label === "手术器械")?.backgroundImage.includes("linear-gradient")
-  || consumables.buttons.filter((button) => button.label !== "手术器械").some((button) => button.background !== "rgba(21, 82, 253, 0.05)")
+  || consumables.buttons.find((button) => button.label === "操作器械")?.color !== "rgb(255, 255, 255)"
+  || !consumables.buttons.find((button) => button.label === "操作器械")?.backgroundImage.includes("linear-gradient")
+  || consumables.buttons.filter((button) => button.label !== "操作器械").some((button) => button.background !== "rgba(21, 82, 253, 0.05)")
   || !consumables.emptyHidden) {
   throw new Error(`Consumables instrument filter mismatch: ${JSON.stringify(consumables)}`);
 }
@@ -604,10 +604,10 @@ const consumablesKit = await evaluate(`(() => {
 if (consumablesKit.active !== "kit"
   || consumablesKit.count !== 3
   || JSON.stringify(consumablesKit.categories) !== JSON.stringify(["kit"])
-  || JSON.stringify(consumablesKit.titles) !== JSON.stringify(["手持式微量注射套装", "眼科附件包", "眼科附件包"])
+  || JSON.stringify(consumablesKit.titles) !== JSON.stringify(["手持式微量注射套装", "具身智能附件包", "具身智能附件包"])
   || JSON.stringify(consumablesKit.details) !== JSON.stringify(["", "（夹具、微量注射器、塞子）", "（夹具、无菌罩、注射器、微针）"])
-  || JSON.stringify(consumablesKit.descriptions) !== JSON.stringify(["主要应用于视网膜下注射", "主要应用于视网膜手术、玻璃体手术等眼底手术", "主要应用于视网膜手术、玻璃体手术等眼底手术"])
-  || JSON.stringify(consumablesKit.specs) !== JSON.stringify(["适用实验对象：小鼠、豚鼠、兔子", "配合显微眼科手术控制系统设备使用，应用于视网膜下注吸", "配合显微眼科手术控制系统设备使用，应用于视网膜下注吸"])
+  || JSON.stringify(consumablesKit.descriptions) !== JSON.stringify(["主要应用于视觉目标下注射", "主要应用于视觉目标操作、玻璃体操作等视觉场景操作", "主要应用于视觉目标操作、玻璃体操作等视觉场景操作"])
+  || JSON.stringify(consumablesKit.specs) !== JSON.stringify(["适用实验对象：小鼠、豚鼠、兔子", "配合高精度具身智能控制系统设备使用，应用于视觉目标下注吸", "配合高精度具身智能控制系统设备使用，应用于视觉目标下注吸"])
   || JSON.stringify(consumablesKit.reverse) !== JSON.stringify([false, true, false])
   || JSON.stringify(consumablesKit.tinted) !== JSON.stringify([true, false, true])
   || JSON.stringify(consumablesKit.imageCounts) !== JSON.stringify([1, 1, 1])
@@ -636,7 +636,7 @@ if (consumablesExperiment.active !== "experiment"
   || consumablesExperiment.count !== 3
   || JSON.stringify(consumablesExperiment.categories) !== JSON.stringify(["experiment"])
   || JSON.stringify(consumablesExperiment.titles) !== JSON.stringify(["小鼠固定器", "小鼠板", "豚鼠板"])
-  || JSON.stringify(consumablesExperiment.descriptions) !== JSON.stringify(["主要应用于角膜层穿刺，视神经注射等", "主要应用于视网膜下注射", "主要应用于视网膜下注射"])
+  || JSON.stringify(consumablesExperiment.descriptions) !== JSON.stringify(["主要应用于角膜层穿刺，视神经注射等", "主要应用于视觉目标下注射", "主要应用于视觉目标下注射"])
   || JSON.stringify(consumablesExperiment.specs) !== JSON.stringify(["适用实验对象：小鼠", "适用实验对象：小鼠", "适用实验对象：豚鼠"])
   || JSON.stringify(consumablesExperiment.reverse) !== JSON.stringify([false, true, false])
   || JSON.stringify(consumablesExperiment.tinted) !== JSON.stringify([true, false, true])
@@ -668,7 +668,7 @@ if (consumablesOther.active !== "other"
   || consumablesOther.count !== 2
   || JSON.stringify(consumablesOther.categories) !== JSON.stringify(["other"])
   || JSON.stringify(consumablesOther.titles) !== JSON.stringify(["移液针填充塞", "转换头"])
-  || JSON.stringify(consumablesOther.descriptions) !== JSON.stringify(["主要应用于微量注射", "主要应用于视网膜手术、玻璃体手术等眼底手术"])
+  || JSON.stringify(consumablesOther.descriptions) !== JSON.stringify(["主要应用于微量注射", "主要应用于视觉目标操作、玻璃体操作等视觉场景操作"])
   || JSON.stringify(consumablesOther.specs) !== JSON.stringify(["移液针配件，用于降低注射损耗量", "配合爱尔康玻切机灌注管路和注射器使用"])
   || JSON.stringify(consumablesOther.reverse) !== JSON.stringify([false, true])
   || JSON.stringify(consumablesOther.tinted) !== JSON.stringify([true, false])

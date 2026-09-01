@@ -3,7 +3,7 @@ from docx import Document
 from docx.enum.text import WD_COLOR_INDEX
 from docx.oxml import OxmlElement
 
-src = [x for x in glob.glob(r'C:\Users\weimo\Downloads\*.docx') if '微眸医疗官网——代码架构与设计 (2)' in x][0]
+src = [x for x in glob.glob(r'C:\Users\weimo\Downloads\*.docx') if '具身智能社团官网——代码架构与设计 (2)' in x][0]
 out = 'weimou_web——代码架构与设计（代码解释高亮版）.docx'
 shutil.copyfile(src, out)
 d = Document(out)
@@ -13,14 +13,14 @@ def highlight(p):
         r.font.highlight_color = WD_COLOR_INDEX.YELLOW
 
 repls = {
-    '微眸医疗官网': 'weimou_web',
-    'src/main.jsx': 'src/weimou_web_main.jsx',
-    'app.js': 'weimou_web_app.js',
-    'i18n.js': 'weimou_web_i18n.js',
-    'styles.css': 'weimou_web_styles.css',
-    'server.js': 'weimou_web_server.js',
-    'src/pot-player.js': 'src/weimou_web_pot-player.js',
-    'src/leaflet-map.js': 'src/weimou_web_leaflet-map.js',
+    '具身智能社团官网': 'weimou_web',
+    'src/main.jsx': 'src/main.jsx',
+    'app.js': 'app.js',
+    'i18n.js': 'i18n.js',
+    'styles.css': 'styles.css',
+    'server.js': 'server.js',
+    'src/pot-player.js': 'src/pot-player.js',
+    'src/leaflet-map.js': 'src/leaflet-map.js',
 }
 for p in d.paragraphs:
     old = p.text

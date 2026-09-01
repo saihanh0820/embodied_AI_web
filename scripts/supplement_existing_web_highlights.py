@@ -1,8 +1,8 @@
 from docx import Document
 from docx.shared import Pt
 
-SOURCE = r"C:\Users\weimo\Downloads\微眸医疗官网——代码架构与设计 (3).docx"
-OUTPUT = r"C:\Users\weimo\Downloads\微眸医疗官网——代码架构与设计 (3)-现有网页技术亮点补充版.docx"
+SOURCE = r"C:\Users\weimo\Downloads\具身智能社团官网——代码架构与设计 (3).docx"
+OUTPUT = r"C:\Users\weimo\Downloads\具身智能社团官网——代码架构与设计 (3)-现有网页技术亮点补充版.docx"
 
 doc = Document(SOURCE)
 doc.add_page_break()
@@ -20,8 +20,8 @@ add_marked("五、现有网页已实现但原文未展开的技术亮点", level
 add_marked("以下不是新增建议，而是从当前网页代码中整理出的已实现能力。它们已经在项目中发挥作用，补充到架构文档中便于后续维护人员理解。新增内容统一使用下划线标记。")
 
 sections = [
-    ("5.1 按页面保存和恢复滚动位置", "src/weimou_web_main.jsx 使用 sessionStorage 按页面保存滚动位置，例如为每个 page 生成独立的 oc(u)lotronics:scroll:<page> 键。页面初次打开时会恢复位置，路由切换时回到顶部。对于新闻等异步内容，代码通过两次 requestAnimationFrame 等待布局完成，并监听 oculotronics:content-ready 事件后再恢复滚动，避免数据加载前恢复位置导致偏移。"),
-    ("5.2 前端新闻请求的 TTL 缓存与请求合并", "weimou_web_app.js 同时维护 newsCache 和 newsRequest：缓存 60 秒内直接复用结果；已有请求尚未完成时，后续调用共享同一个 Promise，而不是重复发起网络请求。这种 single-flight 设计能避免首页新闻区和新闻中心同时加载时产生重复请求。"),
+    ("5.1 按页面保存和恢复滚动位置", "src/main.jsx 使用 sessionStorage 按页面保存滚动位置，例如为每个 page 生成独立的 oc(u)lotronics:scroll:<page> 键。页面初次打开时会恢复位置，路由切换时回到顶部。对于新闻等异步内容，代码通过两次 requestAnimationFrame 等待布局完成，并监听 oculotronics:content-ready 事件后再恢复滚动，避免数据加载前恢复位置导致偏移。"),
+    ("5.2 前端新闻请求的 TTL 缓存与请求合并", "app.js 同时维护 newsCache 和 newsRequest：缓存 60 秒内直接复用结果；已有请求尚未完成时，后续调用共享同一个 Promise，而不是重复发起网络请求。这种 single-flight 设计能避免首页新闻区和新闻中心同时加载时产生重复请求。"),
     ("5.3 异步数据返回前的 DOM 生命周期检查", "新闻和首页新闻加载完成后，会检查 newsGrid.isConnected 或 homeNewsList.isConnected，再决定是否更新 DOM。用户在请求返回前切换了页面时，旧页面节点已脱离文档，代码会放弃更新，从而避免异步回调修改旧页面或产生竞态问题。"),
     ("5.4 联系表单幂等键的前端生成", "联系表单提交时优先使用 crypto.randomUUID() 生成请求标识，并通过 X-Idempotency-Key 发送到服务端；不支持 randomUUID 的浏览器还有时间戳和随机数回退方案。这让重复点击、网络重试和用户重新提交可以被服务端区分，和后端的重复提交识别形成完整闭环。"),
     ("5.5 尊重用户的减少动态效果偏好", "页面动画、文字拆分、产品图片跟随指针旋转和新闻转场都会检查 prefers-reduced-motion: reduce。用户在系统中开启减少动态效果后，页面会降低或跳过动画，并将返回顶部等滚动操作改为非平滑滚动，这体现了无障碍和用户偏好的兼容。"),

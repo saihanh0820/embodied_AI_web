@@ -14,7 +14,6 @@ function readProjectEnv(fileName) {
 }
 
 const environment = {
-  ...readProjectEnv("weimou_web.env"),
   ...readProjectEnv(".env"),
   ...loadEnv(process.env.NODE_ENV || "development", process.cwd(), ""),
   ...process.env

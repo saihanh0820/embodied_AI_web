@@ -2,8 +2,8 @@ import glob, shutil
 from docx import Document
 from docx.enum.text import WD_COLOR_INDEX
 
-src = [x for x in glob.glob(r'C:\Users\weimo\Downloads\*.docx') if '微眸医疗官网' in x][0]
-out = '微眸医疗官网——代码架构与设计（展示修订版）.docx'
+src = [x for x in glob.glob(r'C:\Users\weimo\Downloads\*.docx') if '具身智能社团官网' in x][0]
+out = '具身智能社团官网——代码架构与设计（展示修订版）.docx'
 shutil.copyfile(src, out)
 d = Document(out)
 changes = {
